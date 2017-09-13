@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New BingPhoto", "New BingPh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "comlib", "comlib\comlib.csproj", "{80C66893-495F-4708-8C22-6198933F00B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test or Demo", "Test or Demo\Test or Demo.csproj", "{83A4E0C6-1194-41A4-B0C9-2A85C94FDE9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{80C66893-495F-4708-8C22-6198933F00B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C66893-495F-4708-8C22-6198933F00B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C66893-495F-4708-8C22-6198933F00B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A4E0C6-1194-41A4-B0C9-2A85C94FDE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A4E0C6-1194-41A4-B0C9-2A85C94FDE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A4E0C6-1194-41A4-B0C9-2A85C94FDE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A4E0C6-1194-41A4-B0C9-2A85C94FDE9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

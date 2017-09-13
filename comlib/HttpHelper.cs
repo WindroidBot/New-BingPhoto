@@ -8,7 +8,7 @@ using System.Net;
 
 namespace comlib
 {
-    internal class HttpHelper
+    public class HttpHelper
     {
         /// <summary>
         /// 使用POST方法请求web页面上的数据并返回

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace comlib
 {
-    internal class Setting
+    public class Setting
     {
         /// <summary>
         /// 获取“我的文档”绝对路径
@@ -19,28 +20,38 @@ namespace comlib
             return MyDocumentsURL;
         }
 
+        public string GetRunPath()
+        {
+            string str = Process.GetCurrentProcess().MainModule.FileName;
+            return str;
+        }
+
+        #region 声明设置壁纸的函数
         [DllImport("user32.dll")]
         static extern bool SystemParametersInfo(int uAction, int uParam,
             string IpvParam, int fuWinIni);
+        #endregion
+
         /// <summary>
         /// 设置壁纸
         /// </summary>
         /// <param name="Path">图片的绝对路径</param>
-        internal static void SetWallpaper(string Path)
+        public void SetWallpaper(string Path)
         {
             SystemParametersInfo(20, 0, Path, 0x01 | 0x02);
         }
 
-        #region 获取windows桌面背景
+        #region 声明设置壁纸的函数获取windows桌面背景的函数
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern int SystemParametersInfo(int uAction, int uParam, StringBuilder lpvParam, int fuWinIni);
         private const int SPI_GETDESKWALLPAPER = 0x0073;
         #endregion
+
         /// <summary>
         /// 获取当前用户壁纸路径
         /// </summary>
         /// <returns>当前用户壁纸路径</returns>
-        public static string GetOldWallpaper_path()
+        public string GetOldWallpaperPath()
         {
             StringBuilder s = new StringBuilder(300);//定义存储缓冲区大小
             SystemParametersInfo(SPI_GETDESKWALLPAPER, 300, s, 0);//获取Window 桌面背景图片地址，使用缓冲区
