@@ -20,6 +20,10 @@ namespace comlib
             return MyDocumentsURL;
         }
 
+        /// <summary>
+        /// 获取正在执行的程序绝对路径
+        /// </summary>
+        /// <returns>正在执行的程序绝对路径</returns>
         public string GetRunPath()
         {
             string str = Process.GetCurrentProcess().MainModule.FileName;
