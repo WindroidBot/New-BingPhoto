@@ -68,6 +68,9 @@ namespace comlib
             }
         }
 
+        /// <summary>
+        /// 刷新ini配置文件
+        /// </summary>
         public void Flush_ini()
         {
             Setting setting = new Setting();
@@ -75,10 +78,5 @@ namespace comlib
             WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), setting.GetMyDocumentsPath() + "\\bingphoto.ini");
             Console.WriteLine("配置文件已刷新！");
         }
-
-        
-
-
-
     }
 }
