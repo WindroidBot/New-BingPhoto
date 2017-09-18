@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using comlib;
 
-namespace New_BingPhoto
+namespace Test_or_Demo
 {
-    public class Photo
+    public class Testphoto
     {
         private int startdate;//开始日期
-        public enum countrylist { _JP,_CN,_IN,_DE,_FR,_GB,_BR,_CA,_US,_AU};//国家和地区
+        public enum countrylist { _JP, _CN, _IN, _DE, _FR, _GB, _BR, _CA, _US, _AU };//国家和地区
         private string requestStr;//请求字符串
         private string hDUrl;//1920x1080 分辨率图片URL
         private string wXGAUrl;//1366x768 分辨率图片URL
@@ -22,7 +22,7 @@ namespace New_BingPhoto
         public string WXGAUrl { get => wXGAUrl; set => wXGAUrl = value; }
         public string Copyright { get => copyright; set => copyright = value; }
 
-        public Photo(int idx, int n)
+        public Testphoto(int idx, int n)
         {
             HttpHelper httpHelper = new HttpHelper();
             string requestJson = httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, n));

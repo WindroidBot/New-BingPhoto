@@ -26,8 +26,9 @@ namespace comlib
         /// <returns>Value</returns>
         public string GetValue(string key)
         {
+            string iniPath = (new Setting()).GetMyDocumentsPath() + "\\bingphoto.ini";
             StringBuilder temp = new StringBuilder(1024);
-            GetPrivateProfileString("BINGPHOTO", key, "", temp, 1024, (new Setting()).GetMyDocumentsPath() + "\\bingphoto.ini");
+            GetPrivateProfileString("BINGPHOTO", key, "", temp, 1024, iniPath);
             return temp.ToString();
         }
         
@@ -38,7 +39,8 @@ namespace comlib
         /// <param name="value">value</param>
         public void SetValue(string key,string value)
         {
-            WritePrivateProfileString("BINGPHOTO", value, key, (new Setting()).GetMyDocumentsPath() + "\\bingphoto.ini");
+            string iniPath = (new Setting()).GetMyDocumentsPath() + "\\bingphoto.ini";
+            WritePrivateProfileString("BINGPHOTO", key, value, iniPath);
         }
               
         /// <summary>
@@ -52,30 +54,32 @@ namespace comlib
         public void Initialise_ini(string oldWallPath, string dirPath, string exePath, bool autoDownload, bool autoSetWall)
         {
             Setting setting = new Setting();
-            if (!System.IO.File.Exists(setting.GetMyDocumentsPath() + "\\bingphoto.ini"))
+            string iniPath = setting.GetMyDocumentsPath() + "\\bingphoto.ini";
+            if (!System.IO.File.Exists(iniPath))
             {
-                WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", oldWallPath, setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-                WritePrivateProfileString("BINGPHOTO", "DIRPATH", dirPath, setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-                WritePrivateProfileString("BINGPHOTO", "EXEPATH", exePath, setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-                WritePrivateProfileString("BINGPHOTO", "AUTODOWN", autoDownload.ToString(), setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-                WritePrivateProfileString("BINGPHOTO", "AUTOSET", autoSetWall.ToString(), setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-                //File.SetAttributes(setting.GetMyDocumentsPath() + "\\bingphoto.ini", FileAttributes.Hidden); //设置为隐藏文件
+                WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", oldWallPath, iniPath);
+                WritePrivateProfileString("BINGPHOTO", "DIRPATH", dirPath, iniPath);
+                WritePrivateProfileString("BINGPHOTO", "EXEPATH", exePath, iniPath);
+                WritePrivateProfileString("BINGPHOTO", "AUTODOWN", autoDownload.ToString(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "AUTOSET", autoSetWall.ToString(), iniPath);
+                //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("配置文件不存在，并已创建！");
             }
             else
             {
                 Console.WriteLine("配置文件已存在！");
+                Flush_ini(iniPath);
             }
         }
 
         /// <summary>
         /// 刷新ini配置文件
         /// </summary>
-        public void Flush_ini()
+        private void Flush_ini(string iniPath)
         {
             Setting setting = new Setting();
-            WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", setting.GetOldWallpaperPath(), setting.GetMyDocumentsPath() + "\\bingphoto.ini");
-            WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), setting.GetMyDocumentsPath() + "\\bingphoto.ini");
+            WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", setting.GetOldWallpaperPath(), iniPath);
+            WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), iniPath);
             Console.WriteLine("配置文件已刷新！");
         }
     }

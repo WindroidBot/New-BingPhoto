@@ -6,11 +6,24 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace comlib
 {
     public class HttpHelper
     {
+        /// <summary>
+        /// 构造请求字符串
+        /// </summary>
+        /// <param name="idx">相对日期参数</param>
+        /// <param name="n">结果集数量</param>
+        /// <returns>请求字符串</returns>
+       public string GetRequestUrl(int idx,int n)
+        {
+            string RequestUrl = "http://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + idx + "&n=" + n;
+            return RequestUrl;
+        }            
+        
         /// <summary>
         /// 使用POST方法请求web页面上的数据并返回
         /// </summary>
@@ -37,6 +50,33 @@ namespace comlib
                 return result = "Request Time out!";
             }
             return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jsonstr"></param>
+        /// <param name="index"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetJsonValue(string jsonstr, int index, string key)
+        {
+            JObject jsonObj = JObject.Parse(jsonstr);
+            return jsonObj["images"][index][key].ToString();
+        }
+
+        /// <summary>
+        /// 直接获取json的字段值
+        /// </summary>
+        /// <param name="idx">相对日期参数</param>
+        /// <param name="n">结果集数量</param>
+        /// <param name="index">结果集元素的索引</param>
+        /// <param name="key">元素中的字段</param>
+        /// <returns>json中的字段值</returns>
+        public string DirectGetJsonValue(int idx, int n, int index, string key)
+        {
+            HttpHelper httpHelper = new HttpHelper();
+            return httpHelper.GetJsonValue(httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, n)), index, key);
         }
 
         /// <summary>
