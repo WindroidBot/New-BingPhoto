@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using comlib;
+using photolib;
 using System.ComponentModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -32,13 +33,21 @@ namespace Test_or_Demo
             configHelper.SetValue("AUTOSET", "true");
             */
 
-            Console.WriteLine(httpHelper.DirectGetJsonValue(0,1,0, "copyright"));
-            Testphoto testphoto = new Testphoto(0, 1);
-            Console.WriteLine(testphoto.RequestStr);
-            Console.WriteLine(testphoto.Startdate);
-            Console.WriteLine(testphoto.WXGAUrl);
-            Console.WriteLine(testphoto.HDUrl);
+            //Console.WriteLine(httpHelper.DirectGetJsonValue(0,1,0, "copyright"));
+            //Photo testphoto = new Photo(0, 1);
+            //Console.WriteLine(testphoto.RequestStr);
+            //Console.WriteLine(testphoto.Startdate);
+            //Console.WriteLine(testphoto.WXGAUrl);
+            //Console.WriteLine(testphoto.HDUrl);
 
+            Console.ReadLine();
+            Photos photos = new Photos(0, 8);
+            int[] aa = new int[8];
+            for(int i = 0; i < 8; i++)
+            {
+                Console.WriteLine(photos.GetAphotoValue(i).Copyright);
+            }
+            
 
 
 
