@@ -8,6 +8,8 @@ using photolib;
 using System.ComponentModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
 
 namespace Test_or_Demo
 {
@@ -17,21 +19,28 @@ namespace Test_or_Demo
         static void Main(string[] args)
         {
             HttpHelper httpHelper = new HttpHelper();
-            /*
-            string strJson = httpHelper.GetHttpData("http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=3");
-            Console.WriteLine(strJson);
+            
+            //string strJson = httpHelper.GetHttpData("http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=3");
+            //Console.WriteLine(strJson);
             //string strJson2 = @"{ ""student"": { ""Name1"": ""小明"" , ""Name2"": ""小花"" , ""Name3"": ""小红""} }";
-            JObject jsonObj = JObject.Parse(strJson);
-            Console.WriteLine(jsonObj["images"][2]["copyright"].ToString());
+            //JObject jsonObj = JObject.Parse(strJson);
+            //Console.WriteLine(jsonObj["images"][2]["copyright"].ToString());
             //Console.WriteLine(jsonObj["student"]["Name2"].ToString());
-            Console.ReadLine();
+            //Console.ReadLine();
 
             ConfigHelper configHelper = new ConfigHelper();
             Setting setting = new Setting();
-            configHelper.Initialise_ini(setting.GetOldWallpaperPath(), setting.GetMyDocumentsPath() + "\\bingphoto", setting.GetRunPath(), false, false);
+            configHelper.Initialise_ini();
             Console.WriteLine(configHelper.GetValue("OLDWALLPATH"));
             configHelper.SetValue("AUTOSET", "true");
-            */
+
+            Photo photo = new Photo(0, 1);
+            Console.WriteLine(photo.HDUrl);
+            Console.WriteLine(configHelper.GetValue("DIRPATH"));
+
+            WebClient webClient = new WebClient();
+            webClient.DownloadFile("http://"+photo.HDUrl, configHelper.GetValue("DIRPATH") + "/" + Path.GetFileName(photo.HDUrl));
+
 
             //Console.WriteLine(httpHelper.DirectGetJsonValue(0,1,0, "copyright"));
             //Photo testphoto = new Photo(0, 1);
@@ -40,6 +49,7 @@ namespace Test_or_Demo
             //Console.WriteLine(testphoto.WXGAUrl);
             //Console.WriteLine(testphoto.HDUrl);
 
+            /*
             Console.ReadLine();
             Photos photos = new Photos(0, 8);
             int[] aa = new int[8];
@@ -47,7 +57,8 @@ namespace Test_or_Demo
             {
                 Console.WriteLine(photos.GetAphotoValue(i).Copyright);
             }
-            
+            */
+
 
 
 

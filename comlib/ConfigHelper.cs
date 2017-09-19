@@ -51,17 +51,17 @@ namespace comlib
         /// <param name="exePath">程序路径</param>
         /// <param name="autoDownload">自动下载壁纸开关</param>
         /// <param name="autoSetWall">自动设置壁纸开关</param>
-        public void Initialise_ini(string oldWallPath, string dirPath, string exePath, bool autoDownload, bool autoSetWall)
+        public void Initialise_ini()
         {
             Setting setting = new Setting();
             string iniPath = setting.GetMyDocumentsPath() + "\\bingphoto.ini";
             if (!System.IO.File.Exists(iniPath))
             {
-                WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", oldWallPath, iniPath);
-                WritePrivateProfileString("BINGPHOTO", "DIRPATH", dirPath, iniPath);
-                WritePrivateProfileString("BINGPHOTO", "EXEPATH", exePath, iniPath);
-                WritePrivateProfileString("BINGPHOTO", "AUTODOWN", autoDownload.ToString(), iniPath);
-                WritePrivateProfileString("BINGPHOTO", "AUTOSET", autoSetWall.ToString(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", setting.GetOldWallpaperPath(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "DIRPATH", setting.GetMyDocumentsPath() + "\\BingPhotos", iniPath);
+                WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("配置文件不存在，并已创建！");
             }

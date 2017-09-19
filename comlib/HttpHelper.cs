@@ -85,21 +85,26 @@ namespace comlib
         /// <param name="fileUrl">壁纸的URL</param>
         /// <param name="PhotoDir">壁纸存放目录</param>
         /// <returns>下载成功返回true否则为false</returns>
-        public bool DownLoadPhoto(string fileUrl, string PhotoDir)
+        public bool DownLoadPhoto(string fileUrl)
         {
             Setting setting = new Setting();
-            if (!Directory.Exists(setting.GetMyDocumentsPath() + "\\BingPhoto"))
+            ConfigHelper configHelper = new ConfigHelper();
+            string PhotoDir = configHelper.GetValue("DIRPATH");
+            if (!Directory.Exists(PhotoDir))
             {
-                Directory.CreateDirectory(setting.GetMyDocumentsPath() + "\\BingPhoto");
+                Directory.CreateDirectory(PhotoDir);
+                Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
             }
             WebClient webClient = new WebClient();
             try
             {
                 webClient.DownloadFile(fileUrl, PhotoDir + "/" + Path.GetFileName(fileUrl));
+                Console.WriteLine("【system】下载成功！");
                 return true;
             }
             catch (System.Net.WebException)
             {
+                Console.WriteLine("【system】下载失败！");
                 return false;
             }            
         }
