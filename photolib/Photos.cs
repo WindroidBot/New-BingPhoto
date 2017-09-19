@@ -27,8 +27,8 @@ namespace photolib
     {
         private int idx;//相对时间参数对应API参数中的idx
         private int resultSum;//返回数据的总量对应API参数中的n
-        public enum countrylist { _JP, _CN, _IN, _DE, _FR, _GB, _BR, _CA, _US, _AU };//国家和地区
-        public enum aphotoKey { _Jsonindex, _startdate, _hDUrl, _wXGAUrl, _copyright };//Aphoto的字段
+        public enum Countrylist { _JP, _CN, _IN, _DE, _FR, _GB, _BR, _CA, _US, _AU };//国家和地区
+        public enum AphotoKey { _Jsonindex, _startdate, _hDUrl, _wXGAUrl, _copyright };//Aphoto的字段
         private string requestStr;//请求字符串
         private List<Aphoto> photocontainer = new List<Aphoto>();
 

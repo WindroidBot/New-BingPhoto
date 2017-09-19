@@ -10,7 +10,7 @@ namespace photolib
     public class Photo
     {
         private int startdate;//开始日期
-        public enum countrylist { _JP, _CN, _IN, _DE, _FR, _GB, _BR, _CA, _US, _AU };//国家和地区
+        public enum Countrylist { _JP, _CN, _IN, _DE, _FR, _GB, _BR, _CA, _US, _AU };//国家和地区
         private string requestStr;//请求字符串
         private string hDUrl;//1920x1080 分辨率图片URL
         private string wXGAUrl;//1366x768 分辨率图片URL
