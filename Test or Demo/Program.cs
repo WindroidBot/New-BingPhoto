@@ -30,16 +30,14 @@ namespace Test_or_Demo
 
             ConfigHelper configHelper = new ConfigHelper();
             Setting setting = new Setting();
+
             configHelper.Initialise_ini();
-            Console.WriteLine(configHelper.GetValue("OLDWALLPATH"));
-            configHelper.SetValue("AUTOSET", "true");
+            //configHelper.SetValue("AUTOSET", "true");
 
-            Photo photo = new Photo(0, 1);
-            Console.WriteLine(photo.HDUrl);
-            Console.WriteLine(configHelper.GetValue("DIRPATH"));
+            Photo photo = new Photo(-1, 1);
+            //Console.WriteLine(photo.HDUrl);
 
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("http://"+photo.HDUrl, configHelper.GetValue("DIRPATH") + "/" + Path.GetFileName(photo.HDUrl));
+            httpHelper.DownLoadPhoto(photo.HDUrl);
 
 
             //Console.WriteLine(httpHelper.DirectGetJsonValue(0,1,0, "copyright"));

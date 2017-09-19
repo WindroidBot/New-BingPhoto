@@ -56,8 +56,8 @@ namespace photolib
                 {
                     Jsonindex = n,
                     Startdate = int.Parse(httpHelper.GetJsonValue(requestJson, n, "startdate")),
-                    HDUrl = "www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "url"),
-                    WXGAUrl = "www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "urlbase") + "_1366x768.jpg",
+                    HDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "url"),
+                    WXGAUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "urlbase") + "_1366x768.jpg",
                     Copyright = httpHelper.GetJsonValue(requestJson, n, "copyright"),
                 };
                 //Console.WriteLine(aphoto.Startdate + aphoto.HDUrl + aphoto.Copyright);

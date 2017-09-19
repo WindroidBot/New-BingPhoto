@@ -29,8 +29,8 @@ namespace photolib
             string requestJson = httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, n));
             this.startdate = int.Parse(httpHelper.GetJsonValue(requestJson, 0, "startdate"));
             this.requestStr = httpHelper.GetRequestUrl(idx, n);
-            this.hDUrl = "www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "url");
-            this.wXGAUrl = "www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "urlbase") + "_1366x768.jpg";
+            this.hDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "url");
+            this.wXGAUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "urlbase") + "_1366x768.jpg";
             this.copyright = httpHelper.GetJsonValue(requestJson, 0, "copyright");
         }
     }

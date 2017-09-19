@@ -90,6 +90,7 @@ namespace comlib
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
             string PhotoDir = configHelper.GetValue("DIRPATH");
+            Console.WriteLine("【system】读取到的图片保存目录是：" + PhotoDir);
             if (!Directory.Exists(PhotoDir))
             {
                 Directory.CreateDirectory(PhotoDir);

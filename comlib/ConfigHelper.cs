@@ -63,11 +63,11 @@ namespace comlib
                 WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
-                Console.WriteLine("配置文件不存在，并已创建！");
+                Console.WriteLine("【system】配置文件不存在，并已创建！");
             }
             else
             {
-                Console.WriteLine("配置文件已存在！");
+                Console.WriteLine("【system】配置文件已存在！");
                 Flush_ini(iniPath);
             }
         }
@@ -80,7 +80,7 @@ namespace comlib
             Setting setting = new Setting();
             WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", setting.GetOldWallpaperPath(), iniPath);
             WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), iniPath);
-            Console.WriteLine("配置文件已刷新！");
+            Console.WriteLine("【system】配置文件已刷新！");
         }
     }
 }
