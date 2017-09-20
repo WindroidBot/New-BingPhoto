@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New_BingPhoto"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="必应美图助手" Height="369.5" Width="626.5">
     <Grid>
-        
+        <Button Name="TestButton" HorizontalAlignment="Left" Margin="226,126,0,0" VerticalAlignment="Top" Width="114" Height="19" Click="TestButton_Click">
+            这是一个按钮
+        </Button>
     </Grid>
 </Window>

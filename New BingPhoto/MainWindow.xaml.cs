@@ -24,5 +24,10 @@ namespace New_BingPhoto
         {
             InitializeComponent();
         }
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("你点了一下劳资！", "提示");
+        }
     }
 }
