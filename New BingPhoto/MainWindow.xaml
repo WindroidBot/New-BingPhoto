@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New_BingPhoto"
         mc:Ignorable="d"
-        Title="必应美图助手" Height="369.5" Width="626.5">
+        Title="必应美图助手" Height="369.5" Width="736" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="False">
     <Grid>
-        <Label Content="时       间   ：" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top"/>
-        <Label Content="国家或地区：" HorizontalAlignment="Left" Margin="42,72,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Combox_data" HorizontalAlignment="Left" Margin="128,46,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" SelectedIndex="1" IsTabStop="False" RenderTransformOrigin="0.5,0.5">
+        <Label x:Name="Label_date" Content="时       间   ：" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Label_country" Content="国家或地区：" HorizontalAlignment="Left" Margin="42,72,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Combox_date" HorizontalAlignment="Left" Margin="128,46,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" SelectedIndex="1" IsTabStop="False" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ComboBoxItem Content="明天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="今天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="昨天" HorizontalAlignment="Left" Width="118"/>
@@ -28,7 +28,7 @@
             <ComboBoxItem Content="前14天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="前15天" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="129,76,0,0" VerticalAlignment="Top" Width="135">
+        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="128,76,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False" IsHitTestVisible="False">
             <ComboBoxItem Content="中国" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="日本" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="印度" HorizontalAlignment="Left" Width="133"/>
@@ -40,5 +40,15 @@
             <ComboBoxItem Content="加拿大" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="澳大利亚" HorizontalAlignment="Left" Width="133"/>
         </ComboBox>
+        <Button x:Name="Button_Search" Content="查询" HorizontalAlignment="Left" Margin="332,42,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="Button_download" Content="下载" HorizontalAlignment="Left" Margin="332,78,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_setWall" Content="设为壁纸" HorizontalAlignment="Left" Margin="450,42,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_downAndset" Content="下载并设为壁纸" HorizontalAlignment="Left" Margin="450,78,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_resetWall" Content="还原壁纸" HorizontalAlignment="Left" Margin="604,46,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button x:Name="Button_downloadAll" Content="一键批量下载" HorizontalAlignment="Left" Margin="604,97,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_opendir" Content="查看目录" HorizontalAlignment="Left" Margin="450,142,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_setting" Content="设置" HorizontalAlignment="Left" Margin="604,142,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="Lable_dir" Content="美 图 目 录  :" HorizontalAlignment="Left" Margin="42,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Lable_dirPath" Content="Label" HorizontalAlignment="Left" Margin="128,102,0,0" VerticalAlignment="Top" Width="279"/>
     </Grid>
 </Window>
