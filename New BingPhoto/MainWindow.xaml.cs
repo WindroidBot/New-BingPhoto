@@ -29,5 +29,6 @@ namespace New_BingPhoto
         {
             MessageBox.Show("你点了一下劳资！", "提示");
         }
+
     }
 }

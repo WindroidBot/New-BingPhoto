@@ -7,8 +7,38 @@
         mc:Ignorable="d"
         Title="必应美图助手" Height="369.5" Width="626.5">
     <Grid>
-        <Button Name="TestButton" HorizontalAlignment="Left" Margin="226,126,0,0" VerticalAlignment="Top" Width="114" Height="19" Click="TestButton_Click">
-            这是一个按钮
-        </Button>
+        <Label Content="时       间   ：" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="国家或地区：" HorizontalAlignment="Left" Margin="42,72,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Combox_data" HorizontalAlignment="Left" Margin="128,46,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" SelectedIndex="1" IsTabStop="False" RenderTransformOrigin="0.5,0.5">
+            <ComboBoxItem Content="明天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="今天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="昨天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前3天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前4天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前5天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前6天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前7天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前8天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前9天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前10天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前11天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前12天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前13天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前14天" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="前15天" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="129,76,0,0" VerticalAlignment="Top" Width="135">
+            <ComboBoxItem Content="中国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="日本" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="印度" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="德国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="法国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="英国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="巴西" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="美国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="加拿大" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="澳大利亚" HorizontalAlignment="Left" Width="133"/>
+        </ComboBox>
     </Grid>
 </Window>

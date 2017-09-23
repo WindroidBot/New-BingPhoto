@@ -41,8 +41,8 @@ namespace photolib
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="idx"></param>
-        /// <param name="resultSum"></param>
+        /// <param name="idx">API中的idx字段（相对时间参数）</param>
+        /// <param name="resultSum">API中的n字段（返回的结果数目）</param>
         public Photos(int idx, int resultSum)
         {
             this.resultSum = resultSum;

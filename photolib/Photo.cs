@@ -22,6 +22,11 @@ namespace photolib
         public string WXGAUrl { get => wXGAUrl; set => wXGAUrl = value; }
         public string Copyright { get => copyright; set => copyright = value; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idx">API中的idx字段（相对时间参数）</param>
+        /// <param name="n">API中的n字段（返回的结果数目）</param>
         public Photo(int idx, int n)
         {
 
