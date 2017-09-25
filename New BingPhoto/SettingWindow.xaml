@@ -1,0 +1,16 @@
+﻿<Window x:Class="New_BingPhoto.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New_BingPhoto"
+        mc:Ignorable="d"
+        Title="SettingWindow" Height="300" Width="300" Loaded="Window_Loaded">
+    <Grid>
+        <Label x:Name="label_Resolving" Content="选择图片分辨率：" HorizontalAlignment="Left" Margin="37,24,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="radioButton_Resolving" x:Name="radioButton_Resolving1080" Content="1920 X 1080" HorizontalAlignment="Left" Margin="54,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="radioButton_Resolving" x:Name="radioButton_Resolving1366" Content="1366 X 768" HorizontalAlignment="Left" Margin="54,65,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button_OK" Content="确定" HorizontalAlignment="Left" Margin="197,230,0,0" VerticalAlignment="Top" Width="75" Click="Button_OK_Click"/>
+
+    </Grid>
+</Window>

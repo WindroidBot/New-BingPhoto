@@ -19,7 +19,11 @@ namespace Test_or_Demo
         static void Main(string[] args)
         {
             HttpHelper httpHelper = new HttpHelper();
-            
+            ConfigHelper configHelper = new ConfigHelper();
+            Setting setting = new Setting();
+
+            Photo photo = new Photo(0);
+
             //string strJson = httpHelper.GetHttpData("http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=3");
             //Console.WriteLine(strJson);
             //string strJson2 = @"{ ""student"": { ""Name1"": ""小明"" , ""Name2"": ""小花"" , ""Name3"": ""小红""} }";
@@ -28,24 +32,20 @@ namespace Test_or_Demo
             //Console.WriteLine(jsonObj["student"]["Name2"].ToString());
             //Console.ReadLine();
 
-            ConfigHelper configHelper = new ConfigHelper();
-            Setting setting = new Setting();
 
-            configHelper.Initialise_ini();
+
+            //configHelper.Initialise_ini();
             //configHelper.SetValue("AUTOSET", "true");
 
-            Photo photo = new Photo(-1, 1);
+            //Photo photo = new Photo(-1, 1);
             //Console.WriteLine(photo.HDUrl);
 
-            httpHelper.DownLoadPhoto(photo.HDUrl);
+            //httpHelper.DownLoadPhoto(photo.HDUrl);
 
 
-            //Console.WriteLine(httpHelper.DirectGetJsonValue(0,1,0, "copyright"));
-            //Photo testphoto = new Photo(0, 1);
-            //Console.WriteLine(testphoto.RequestStr);
-            //Console.WriteLine(testphoto.Startdate);
-            //Console.WriteLine(testphoto.WXGAUrl);
-            //Console.WriteLine(testphoto.HDUrl);
+            Console.WriteLine(photo.HDUrl);
+
+            setting.SetWallpaper(@"http://www.bing.com/az/hprichbg/rb/AlgaeRocks_ZH-CN13979237458_1920x1080.jpg");
 
             /*
             Console.ReadLine();

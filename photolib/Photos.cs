@@ -11,13 +11,13 @@ namespace photolib
     public struct Aphoto
     {
         private int jsonindex;//结果集索引
-        private int startdate;//日期
+        private int enddate;//日期
         private string hDUrl;//1920x1080分辨率URL
         private string wXGAUrl;//1366x768分辨率URL
         private string copyright;//版权与说明信息
 
         public int Jsonindex { get => jsonindex; set => jsonindex = value; }
-        public int Startdate { get => startdate; set => startdate = value; }
+        public int Startdate { get => enddate; set => enddate = value; }
         public string HDUrl { get => hDUrl; set => hDUrl = value; }
         public string WXGAUrl { get => wXGAUrl; set => wXGAUrl = value; }
         public string Copyright { get => copyright; set => copyright = value; }
@@ -55,7 +55,7 @@ namespace photolib
                 Aphoto aphoto = new Aphoto
                 {
                     Jsonindex = n,
-                    Startdate = int.Parse(httpHelper.GetJsonValue(requestJson, n, "startdate")),
+                    Startdate = int.Parse(httpHelper.GetJsonValue(requestJson, n, "enddate")),
                     HDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "url"),
                     WXGAUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "urlbase") + "_1366x768.jpg",
                     Copyright = httpHelper.GetJsonValue(requestJson, n, "copyright"),

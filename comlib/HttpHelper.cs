@@ -13,6 +13,50 @@ namespace comlib
     public class HttpHelper
     {
         /// <summary>
+        /// 将输入转化为API对应的时间参数，最多至前14天
+        /// </summary>
+        /// <param name="idstr"></param>
+        /// <returns></returns>
+        public int GetRequestIdx(string idstr)
+        {
+            switch (idstr)
+            {
+                case "明天":
+                    return -1;
+                case "今天":
+                    return 0;
+                case "昨天":
+                    return 1;
+                case "前天":
+                    return 2;
+                case "前3天":
+                    return 3;
+                case "前4天":
+                    return 4;
+                case "前5天":
+                    return 5;
+                case "前6天":
+                    return 6;
+                case "前7天":
+                    return 7;
+                case "前8天":
+                    return 8;
+                case "前9天":
+                    return 9;
+                case "前10天":
+                    return 10;
+                case "前11天":
+                    return 11;
+                case "前12天":
+                    return 12;
+                case "前13天":
+                    return 13;
+                case "前14天":
+                    return 14;
+            }
+            return -2;
+        }       
+        /// <summary>
         /// 构造请求字符串
         /// </summary>
         /// <param name="idx">相对日期参数</param>

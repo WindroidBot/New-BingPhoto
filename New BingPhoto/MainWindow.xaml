@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New_BingPhoto"
         mc:Ignorable="d"
-        Title="必应美图助手" Height="369.5" Width="736" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="False">
+        Title="必应美图助手" Height="500.5" Width="847.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsTabStop="False" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid>
         <Label x:Name="Label_date" Content="时       间   ：" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_country" Content="国家或地区：" HorizontalAlignment="Left" Margin="42,72,0,0" VerticalAlignment="Top"/>
@@ -26,9 +26,8 @@
             <ComboBoxItem Content="前12天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="前13天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="前14天" HorizontalAlignment="Left" Width="118"/>
-            <ComboBoxItem Content="前15天" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="128,76,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False" IsHitTestVisible="False">
+        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="128,76,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False" IsEnabled="False">
             <ComboBoxItem Content="中国" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="日本" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="印度" HorizontalAlignment="Left" Width="133"/>
@@ -40,15 +39,17 @@
             <ComboBoxItem Content="加拿大" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="澳大利亚" HorizontalAlignment="Left" Width="133"/>
         </ComboBox>
-        <Button x:Name="Button_Search" Content="查询" HorizontalAlignment="Left" Margin="332,42,0,0" VerticalAlignment="Top" Width="74"/>
-        <Button x:Name="Button_download" Content="下载" HorizontalAlignment="Left" Margin="332,78,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_setWall" Content="设为壁纸" HorizontalAlignment="Left" Margin="450,42,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_downAndset" Content="下载并设为壁纸" HorizontalAlignment="Left" Margin="450,78,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_resetWall" Content="还原壁纸" HorizontalAlignment="Left" Margin="604,46,0,0" VerticalAlignment="Top" Width="76"/>
-        <Button x:Name="Button_downloadAll" Content="一键批量下载" HorizontalAlignment="Left" Margin="604,97,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_opendir" Content="查看目录" HorizontalAlignment="Left" Margin="450,142,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_setting" Content="设置" HorizontalAlignment="Left" Margin="604,142,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_Search" Content="查询" HorizontalAlignment="Left" Margin="332,42,0,0" VerticalAlignment="Top" Width="74" Click="Button_Search_Click"/>
+        <Button x:Name="Button_download" Content="下载" HorizontalAlignment="Left" Margin="332,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_download_Click"/>
+        <Button x:Name="Button_setWall" Content="设为壁纸" HorizontalAlignment="Left" Margin="420,42,0,0" VerticalAlignment="Top" Width="74" Click="Button_setWall_Click"/>
+        <Button x:Name="Button_downAndset" Content="下载并设为壁纸" HorizontalAlignment="Left" Margin="420,78,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_resetWall" Content="还原壁纸" HorizontalAlignment="Left" Margin="511,42,0,0" VerticalAlignment="Top" Width="76" Click="Button_resetWall_Click"/>
+        <Button x:Name="Button_downloadAll" Content="一键批量下载" HorizontalAlignment="Left" Margin="511,78,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Button_opendir" Content="查看目录" HorizontalAlignment="Left" Margin="420,108,0,0" VerticalAlignment="Top" Width="75" Click="Button_opendir_Click"/>
+        <Button x:Name="Button_setting" Content="设置" HorizontalAlignment="Left" Margin="606,108,0,0" VerticalAlignment="Top" Width="75" Click="Button_setting_Click"/>
         <Label x:Name="Lable_dir" Content="美 图 目 录  :" HorizontalAlignment="Left" Margin="42,102,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Lable_dirPath" Content="Label" HorizontalAlignment="Left" Margin="128,102,0,0" VerticalAlignment="Top" Width="279"/>
+        <Image x:Name="image_Photobox" HorizontalAlignment="Left" Height="298" Margin="42,164,0,0" VerticalAlignment="Top" Width="528"/>
+        <Button x:Name="button_SetDir" Content="更改目录" HorizontalAlignment="Left" Margin="511,108,0,0" VerticalAlignment="Top" Width="76" Click="Button_SetDir_Click"/>
     </Grid>
 </Window>

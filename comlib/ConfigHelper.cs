@@ -60,6 +60,7 @@ namespace comlib
                 WritePrivateProfileString("BINGPHOTO", "OLDWALLPATH", setting.GetOldWallpaperPath(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "DIRPATH", setting.GetMyDocumentsPath() + "\\BingPhotos", iniPath);
                 WritePrivateProfileString("BINGPHOTO", "EXEPATH", setting.GetRunPath(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "RESOV", "1920x1080", iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
