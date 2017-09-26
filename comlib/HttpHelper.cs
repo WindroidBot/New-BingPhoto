@@ -7,6 +7,8 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace comlib
 {
@@ -97,12 +99,12 @@ namespace comlib
         }
 
         /// <summary>
-        /// 
+        /// 获取JSON的字段值
         /// </summary>
-        /// <param name="jsonstr"></param>
-        /// <param name="index"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="jsonstr">json字符串</param>
+        /// <param name="index">json中的索引</param>
+        /// <param name="key">键名</param>
+        /// <returns>json字段的值</returns>
         public string GetJsonValue(string jsonstr, int index, string key)
         {
             JObject jsonObj = JObject.Parse(jsonstr);
@@ -127,30 +129,34 @@ namespace comlib
         /// 下载图片
         /// </summary>
         /// <param name="fileUrl">壁纸的URL</param>
-        /// <param name="PhotoDir">壁纸存放目录</param>
         /// <returns>下载成功返回true否则为false</returns>
-        public bool DownLoadPhoto(string fileUrl)
+        public void DownLoadPhoto(string fileUrl)
         {
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
             string PhotoDir = configHelper.GetValue("DIRPATH");
-            Console.WriteLine("【system】读取到的图片保存目录是：" + PhotoDir);
+            //Console.WriteLine("【system】读取到的图片保存目录是：" + PhotoDir);
             if (!Directory.Exists(PhotoDir))
             {
                 Directory.CreateDirectory(PhotoDir);
+                MessageBox.Show("美图保存目录不存在，并已创建！\n" + PhotoDir,
+                "必应美图小助手", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
+            }            
+            if (File.Exists(configHelper.GetValue("DIRPATH") + "/" + System.IO.Path.GetFileName(fileUrl)))
+            {
+                Console.WriteLine("【system】文件已存在");
+                return;
             }
             WebClient webClient = new WebClient();
             try
             {
                 webClient.DownloadFile(fileUrl, PhotoDir + "/" + Path.GetFileName(fileUrl));
                 Console.WriteLine("【system】下载成功！");
-                return true;
             }
             catch (System.Net.WebException)
             {
                 Console.WriteLine("【system】下载失败！");
-                return false;
             }            
         }
     }

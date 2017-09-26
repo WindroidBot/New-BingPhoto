@@ -83,16 +83,20 @@ namespace New_BingPhoto
         {
             HttpHelper httpHelper = new HttpHelper();
             Setting setting = new Setting();
+            ConfigHelper configHelper = new ConfigHelper();
+            string imagedir = configHelper.GetValue("DIRPATH");
             int idx = httpHelper.GetRequestIdx(Combox_date.Text);
             if (idx < 8)
             {
                 Photo photo = new Photo(idx);
-                setting.SetWallpaper(photo.HDUrl);
+                httpHelper.DownLoadPhoto(photo.HDUrl);
+                setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photo.HDUrl));
             }
             else
             {
                 Photos photos = new Photos(7, 8);
-                setting.SetWallpaper(photos.GetAphotoValue(idx - 7).HDUrl);
+                httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
+                setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photos.GetAphotoValue(idx - 7).HDUrl));
             }
         }
 
@@ -146,7 +150,7 @@ namespace New_BingPhoto
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
             {
                 Description = "选择必应美图下载的目录",
-                ShowNewFolderButton = true
+                ShowNewFolderButton = true,
             };
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -165,7 +169,32 @@ namespace New_BingPhoto
         private void Button_download_Click(object sender, RoutedEventArgs e)
         {
             HttpHelper httpHelper = new HttpHelper();
-
+            ConfigHelper configHelper = new ConfigHelper();
+            int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            if (idx < 8)
+            {
+                Photo photo = new Photo(idx);
+                if (configHelper.GetValue("RESOV") == "1920x1080")
+                {
+                    httpHelper.DownLoadPhoto(photo.HDUrl);
+                }
+                else
+                {
+                    httpHelper.DownLoadPhoto(photo.WXGAUrl);
+                }                
+            }
+            else
+            {
+                Photos photos = new Photos(7, 8);
+                if (configHelper.GetValue("RESOV") == "1920x1080")
+                {
+                    httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
+                }
+                else
+                {
+                    httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).WXGAUrl);
+                }               
+            }
         }
     }
 }
