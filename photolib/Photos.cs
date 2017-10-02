@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using comlib;
 
@@ -76,5 +77,35 @@ namespace photolib
             return photocontainer[index];
         }
 
+        /// <summary>
+        /// 批量下载所有图片
+        /// </summary>
+        /// <returns>批量下载所有图片</returns>
+        public void BeathDownloadImage()
+        {
+            for(int index = 0; index < 8; index++)
+            {
+                Thread thread = new Thread(DownloadThreadHDUrl);
+                thread.Start(index);
+            }
+        }
+
+        /// <summary>
+        /// 批量下载1080p图片的子线程，只允许被BeathDownloadImage()调用
+        /// </summary>
+        private void DownloadThreadHDUrl(Object index)
+        {
+            int n = (int)index;
+            HttpHelper httpHelper = new HttpHelper();
+            try
+            {
+                httpHelper.DownLoadPhoto(GetAphotoValue(n).HDUrl);
+            }
+            catch (System.Net.WebException)
+            {
+                Console.WriteLine("【system】第" + n + "张图片下载失败");
+            }
+            Console.WriteLine("【system】第" + n + "张图片下载成功");
+        }
     }
 }

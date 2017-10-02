@@ -196,5 +196,16 @@ namespace New_BingPhoto
                 }               
             }
         }
+
+        /// <summary>
+        /// 【一键批量下载】按钮单击时执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_downloadAll_Click(object sender, RoutedEventArgs e)
+        {
+            Photos photos = new Photos(-1, 8);
+            photos.BeathDownloadImage();
+        }
     }
 }
