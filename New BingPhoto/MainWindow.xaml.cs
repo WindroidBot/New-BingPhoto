@@ -204,8 +204,10 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Button_downloadAll_Click(object sender, RoutedEventArgs e)
         {
-            Photos photos = new Photos(-1, 8);
-            photos.BeathDownloadImage();
+            Photos photos0 = new Photos(-1, 8);
+            Photos photos1 = new Photos(7, 8);
+            photos0.BeathDownloadImage();
+            photos1.BeathDownloadImage();
         }
     }
 }

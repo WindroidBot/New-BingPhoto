@@ -96,10 +96,18 @@ namespace photolib
         private void DownloadThreadHDUrl(Object index)
         {
             int n = (int)index;
+            ConfigHelper configHelper = new ConfigHelper();
             HttpHelper httpHelper = new HttpHelper();
             try
             {
-                httpHelper.DownLoadPhoto(GetAphotoValue(n).HDUrl);
+                if(configHelper.GetValue("RESOV") == "1920x1080")
+                {
+                    httpHelper.DownLoadPhoto(GetAphotoValue(n).HDUrl);
+                }
+                else
+                {
+                    httpHelper.DownLoadPhoto(GetAphotoValue(n).WXGAUrl);
+                }                
             }
             catch (System.Net.WebException)
             {
