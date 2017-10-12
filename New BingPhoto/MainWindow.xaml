@@ -50,5 +50,6 @@
         <Label x:Name="Lable_dirPath" Content="Label" HorizontalAlignment="Left" Margin="128,102,0,0" VerticalAlignment="Top" Width="279"/>
         <Image x:Name="image_Photobox" HorizontalAlignment="Left" Height="298" Margin="42,164,0,0" VerticalAlignment="Top" Width="528"/>
         <Button x:Name="button_SetDir" Content="更改目录" HorizontalAlignment="Left" Margin="511,108,0,0" VerticalAlignment="Top" Width="76" Click="Button_SetDir_Click"/>
+        <Button x:Name="Button_LockScreen" Content="Win10锁屏小助手" HorizontalAlignment="Left" Margin="606,42,0,0" VerticalAlignment="Top" Width="110" Click="Button_LockScreen_Click"/>
     </Grid>
 </Window>

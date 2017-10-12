@@ -40,6 +40,14 @@ namespace New_BingPhoto
             ConfigHelper configHelper = new ConfigHelper();
             configHelper.Initialise_ini();
             Lable_dirPath.Content = configHelper.GetValue("DIRPATH");
+            if ((Environment.OSVersion.Version).Major == 10)
+            {
+                Button_LockScreen.IsEnabled = true;
+            }
+            else
+            {
+                Button_LockScreen.IsEnabled = false;
+            }
         }
 
         /// <summary>
@@ -136,8 +144,8 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Button_setting_Click(object sender, RoutedEventArgs e)
         {
-            SettingWindow Form_otherSet = new SettingWindow();
-            Form_otherSet.ShowDialog();
+            SettingWindow settingWindow = new SettingWindow();
+            settingWindow.ShowDialog(); 
         }
 
         /// <summary>
@@ -208,6 +216,17 @@ namespace New_BingPhoto
             Photos photos1 = new Photos(7, 8);
             photos0.BeathDownloadImage();
             photos1.BeathDownloadImage();
+        }
+
+        /// <summary>
+        /// 【Win10锁屏小助手】按钮单击时执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_LockScreen_Click(object sender, RoutedEventArgs e)
+        {
+            LockScreenWindow lockScreenWindow = new LockScreenWindow();
+            lockScreenWindow.ShowDialog();
         }
     }
 }

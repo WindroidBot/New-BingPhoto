@@ -63,6 +63,8 @@ namespace comlib
                 WritePrivateProfileString("BINGPHOTO", "RESOV", "1920x1080", iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
+
+                WritePrivateProfileString("LOCKSCREEN", "ASSETS", "Test", iniPath);
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("【system】配置文件不存在，并已创建！");
             }
