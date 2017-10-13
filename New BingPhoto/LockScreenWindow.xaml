@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="LockScreenWindow" Height="300" Width="300">
     <Grid>
-        
+        <Label Name="Label_OutputTip" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top">
+            <TextBlock TextWrapping="Wrap" Text="此功能可以导出本机当前Windows10&quot;聚焦&quot;锁屏的图片，您可以指定需要导出的目录"/>
+        </Label>
+        <Label Name="Lable_OutputPath" Content="导出目录：" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Button Name="Button_SetDir" Content="更改目录" HorizontalAlignment="Left" Margin="198,136,0,0" VerticalAlignment="Top" Width="76"/>
+        <CheckBox Name="CheckBox_includePhone" Content="导出手机版锁屏" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top"/>
+        <Button Name="Button_openDir" Content="查看目录" HorizontalAlignment="Left" Margin="50,230,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="Button_Output" Content="一键导出" HorizontalAlignment="Left" Margin="199,230,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

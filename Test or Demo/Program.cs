@@ -18,7 +18,7 @@ namespace Test_or_Demo
         {
             //Version currentVersion = Environment.OSVersion.Version;
             //Console.WriteLine(currentVersion.Major);
-            Console.WriteLine("Your Windows Version Major is : " + (Environment.OSVersion.Version).Major);
+            Console.WriteLine("Your Windows Version Major is : " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
             //string strJson = httpHelper.GetHttpData("http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=3");
             //Console.WriteLine(strJson);

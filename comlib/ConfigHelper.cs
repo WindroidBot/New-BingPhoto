@@ -64,7 +64,7 @@ namespace comlib
                 WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
 
-                WritePrivateProfileString("LOCKSCREEN", "ASSETS", "Test", iniPath);
+                WritePrivateProfileString("LOCKSCREEN", "ASSETS", setting.GetMyAppdataPath()+ "\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets", iniPath);
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("【system】配置文件不存在，并已创建！");
             }

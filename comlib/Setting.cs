@@ -11,13 +11,23 @@ namespace comlib
     public class Setting
     {
         /// <summary>
-        /// 获取“我的文档”绝对路径
+        /// 获取当前用户“我的文档”绝对路径
         /// </summary>
         /// <returns>我的文档绝对路径</returns>
         public string GetMyDocumentsPath()
         {
             string MyDocumentsURL = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             return MyDocumentsURL;
+        }
+
+        /// <summary>
+        /// 获取当前用户“Appdata/Local”绝对路径
+        /// </summary>
+        /// <returns>当前用户“Appdata/Local”绝对路径</returns>
+        public string GetMyAppdataPath()
+        {
+            string MyAppdataURL = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            return MyAppdataURL;
         }
 
         /// <summary>
