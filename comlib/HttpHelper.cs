@@ -118,7 +118,7 @@ namespace comlib
         /// <param name="n">结果集数量</param>
         /// <param name="index">结果集元素的索引</param>
         /// <param name="key">元素中的字段</param>
-        /// <returns>json中的字段值</returns>
+        /// <returns>json中的字段值</returns>                   
         public string DirectGetJsonValue(int idx, int n, int index, string key)
         {
             HttpHelper httpHelper = new HttpHelper();
@@ -134,7 +134,7 @@ namespace comlib
         {
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
-            string PhotoDir = configHelper.GetValue("DIRPATH");
+            string PhotoDir = configHelper.GetValue("BINGPHOTO", "DIRPATH");
             //Console.WriteLine("【system】读取到的图片保存目录是：" + PhotoDir);
             if (!Directory.Exists(PhotoDir))
             {
@@ -143,7 +143,7 @@ namespace comlib
                 "必应美图小助手", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
             }            
-            if (File.Exists(configHelper.GetValue("DIRPATH") + "/" + System.IO.Path.GetFileName(fileUrl)))
+            if (File.Exists(configHelper.GetValue("BINGPHOTO","DIRPATH") + "/" + System.IO.Path.GetFileName(fileUrl)))
             {
                 Console.WriteLine("【system】文件已存在");
                 return;

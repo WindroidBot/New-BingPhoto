@@ -100,7 +100,7 @@ namespace photolib
             HttpHelper httpHelper = new HttpHelper();
             try
             {
-                if(configHelper.GetValue("RESOV") == "1920x1080")
+                if(configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
                     httpHelper.DownLoadPhoto(GetAphotoValue(n).HDUrl);
                 }

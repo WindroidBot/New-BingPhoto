@@ -39,7 +39,7 @@ namespace New_BingPhoto
         {
             ConfigHelper configHelper = new ConfigHelper();
             configHelper.Initialise_ini();
-            Lable_dirPath.Content = configHelper.GetValue("DIRPATH");
+            Lable_dirPath.Content = configHelper.GetValue("BINGPHOTO", "DIRPATH");
             if ((Environment.OSVersion.Version).Major == 10)
             {
                 Button_LockScreen.IsEnabled = true;
@@ -92,7 +92,7 @@ namespace New_BingPhoto
             HttpHelper httpHelper = new HttpHelper();
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
-            string imagedir = configHelper.GetValue("DIRPATH");
+            string imagedir = configHelper.GetValue("BINGPHOTO","DIRPATH");
             int idx = httpHelper.GetRequestIdx(Combox_date.Text);
             if (idx < 8)
             {
@@ -117,7 +117,7 @@ namespace New_BingPhoto
         {
             ConfigHelper configHelper = new ConfigHelper();
             Setting setting = new Setting();
-            setting.SetWallpaper(configHelper.GetValue("OLDWALLPATH"));
+            setting.SetWallpaper(configHelper.GetValue("BINGPHOTO","OLDWALLPATH"));
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace New_BingPhoto
             {
                 ConfigHelper configHelper = new ConfigHelper();
                 Lable_dirPath.Content = folderBrowserDialog.SelectedPath;
-                configHelper.SetValue("DIRPATH", folderBrowserDialog.SelectedPath);
+                configHelper.SetValue("BINGPHOTO", "DIRPATH", folderBrowserDialog.SelectedPath);
             }
 
         }
@@ -182,7 +182,7 @@ namespace New_BingPhoto
             if (idx < 8)
             {
                 Photo photo = new Photo(idx);
-                if (configHelper.GetValue("RESOV") == "1920x1080")
+                if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
                     httpHelper.DownLoadPhoto(photo.HDUrl);
                 }
@@ -194,7 +194,7 @@ namespace New_BingPhoto
             else
             {
                 Photos photos = new Photos(7, 8);
-                if (configHelper.GetValue("RESOV") == "1920x1080")
+                if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
                     httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
                 }
