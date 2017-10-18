@@ -47,11 +47,6 @@ namespace comlib
         /// <summary>
         /// 初始化ini配置文件并赋值
         /// </summary>
-        /// <param name="oldWallPath">原壁纸路径</param>
-        /// <param name="dirPath">图片保存目录</param>
-        /// <param name="exePath">程序路径</param>
-        /// <param name="autoDownload">自动下载壁纸开关</param>
-        /// <param name="autoSetWall">自动设置壁纸开关</param>
         public void Initialise_ini()
         {
             Setting setting = new Setting();
@@ -69,6 +64,7 @@ namespace comlib
                 WritePrivateProfileString("LOCKSCREEN", "ASSETS", setting.GetMyAppdataPath()+ "\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "OUTPATH", setting.GetMyDocumentsPath() + "\\BingPhotos\\locksereen", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "MOBLELOCK", false.ToString(), iniPath);
+                
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("【system】配置文件不存在，并已创建！");
             }

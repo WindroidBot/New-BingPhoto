@@ -68,7 +68,7 @@ namespace photolib
         }
 
         /// <summary>
-        /// 访问结果集结构体的访问器
+        /// 访问photocontainer结构体的访问器
         /// </summary>
         /// <param name="index">结果集的索引</param>
         /// <returns>Aphoto结构体</returns>

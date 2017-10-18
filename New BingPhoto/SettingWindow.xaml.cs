@@ -64,7 +64,6 @@ namespace New_BingPhoto
             //其他设置写在这
 
             //其他设置写在这
-
             Close();
         }
     }

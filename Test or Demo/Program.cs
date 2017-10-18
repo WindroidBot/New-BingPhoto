@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
 using System.IO;
+using photolib;
+using comlib;
 
 namespace Test_or_Demo
 {
@@ -16,9 +18,16 @@ namespace Test_or_Demo
 
         static void Main(string[] args)
         {
+            
+            ConfigHelper configHelper = new ConfigHelper();
+            Lockscreen lockscreen = new Lockscreen(configHelper.GetValue("LOCKSCREEN", "ASSETS"), configHelper.GetValue("LOCKSCREEN", "OUTPATH"));
+            //Console.WriteLine(lockscreen.GetAlockScreenValue(40).ImageName);
+            lockscreen.OutputScreen(true);
+            //System.IO.File.Copy("C:\\Users\\xiexy\\Pictures\\QQ截图20170410201857.png", "C:\\Users\\xiexy\\Pictures\\test\\QQ截图20170410201857.png", true);
+            //lockscreen.ErgodicDirector(configHelper.GetValue("LOCKSCREEN", "ASSETS"));
             //Version currentVersion = Environment.OSVersion.Version;
             //Console.WriteLine(currentVersion.Major);
-            Console.WriteLine("Your Windows Version Major is : " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+            //Console.WriteLine("Your Windows Version Major is : " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
             //string strJson = httpHelper.GetHttpData("http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=3");
             //Console.WriteLine(strJson);
