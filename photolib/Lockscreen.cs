@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
+using comlib;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace photolib
@@ -67,8 +68,12 @@ namespace photolib
                     ImageName=file.Name,
                     Extensioin = file.Extension,
                 };
+                //剔除国小的无关图片
+                if(alockscreen.Length < 150000)
+                {
+                    continue;
+                }
                 screenList.Add(alockscreen);
-                //Console.WriteLine("文件名：" + file.FullName + "扩展名" + file.Extension + "大小" + file.Length);
             }
         }
 
@@ -85,7 +90,7 @@ namespace photolib
         /// <summary>
         /// 向指定目录输出文件，筛选后转换为图片
         /// </summary>
-        public void OutputScreen(bool moblie)
+        public void OutputScreen()
         {
             if (!Directory.Exists(lockScreenDir))
             {
@@ -96,11 +101,10 @@ namespace photolib
             }
             foreach (Alockscreen alockscreen in screenList)
             {               
-                if (alockscreen.Length < 150000)
-                {
-                    continue;
-                }
                 System.IO.File.Copy(alockscreen.ImagePath, lockScreenDir + "\\" + alockscreen.ImageName + ".jpg", true);
+
+                
+                /*
                 if (!moblie)
                 {
                     BitmapImage image = new BitmapImage(new Uri(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg"));
@@ -108,6 +112,61 @@ namespace photolib
                     {
                         System.IO.File.Delete(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
                     }
+                }
+                */
+            }
+        }
+
+        /// <summary>
+        /// 向指定目录输出文件，筛选后转换为图片，使用FileStream复制
+        /// </summary>
+        public void OutputScreen2()
+        {
+            if (!Directory.Exists(lockScreenDir))
+            {
+                Directory.CreateDirectory(lockScreenDir);
+                MessageBox.Show("目标目录不存在，并已创建！\n" + lockScreenDir,
+                "必应美图小助手", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Console.WriteLine("【system】图片目录不存在，并已创建，在" + lockScreenDir);
+            }
+            foreach(Alockscreen alockscreen in screenList)
+            {
+                FileStream sourceStream = new FileStream(alockscreen.ImagePath, FileMode.Open);
+                FileStream destStream = new FileStream(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg", FileMode.Create);
+                int d;
+                byte b;
+                while ((d = sourceStream.ReadByte()) != -1)
+                {
+                    b = (byte)d;
+                    destStream.WriteByte(b);
+                }
+                sourceStream.Close();
+                destStream.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// 删除手机端图片
+        /// </summary>
+        public void DeleteMoblieLock()
+        {
+            foreach(Alockscreen alockscreen in screenList)
+            {
+                BitmapImage image = new BitmapImage();
+                try
+                {
+                    image = (new ImageHelper()).BitImageHelper(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
+                    image.EndInit();
+                }
+                catch(FileNotFoundException)
+                {
+                    continue;
+                }                
+                if (image.Height > image.Width)
+                {
+                    image.Freeze();//释放BitmapImage，文件可以被其他进程操作
+                    System.IO.File.Delete(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
                 }
             }
         }

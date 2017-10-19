@@ -10,6 +10,7 @@ using System.Net;
 using System.IO;
 using photolib;
 using comlib;
+using System.Windows.Media.Imaging;
 
 namespace Test_or_Demo
 {
@@ -18,11 +19,11 @@ namespace Test_or_Demo
 
         static void Main(string[] args)
         {
-            
             ConfigHelper configHelper = new ConfigHelper();
             Lockscreen lockscreen = new Lockscreen(configHelper.GetValue("LOCKSCREEN", "ASSETS"), configHelper.GetValue("LOCKSCREEN", "OUTPATH"));
+            lockscreen.OutputScreen();
+            lockscreen.DeleteMoblieLock();
             //Console.WriteLine(lockscreen.GetAlockScreenValue(40).ImageName);
-            lockscreen.OutputScreen(true);
             //System.IO.File.Copy("C:\\Users\\xiexy\\Pictures\\QQ截图20170410201857.png", "C:\\Users\\xiexy\\Pictures\\test\\QQ截图20170410201857.png", true);
             //lockscreen.ErgodicDirector(configHelper.GetValue("LOCKSCREEN", "ASSETS"));
             //Version currentVersion = Environment.OSVersion.Version;
@@ -47,7 +48,7 @@ namespace Test_or_Demo
                 Console.WriteLine(photos.GetAphotoValue(i).Copyright);
             }
             */
-
+            Console.WriteLine("执行结束！");
             Console.ReadLine();
         }                           
     }
