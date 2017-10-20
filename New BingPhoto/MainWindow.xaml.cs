@@ -57,28 +57,6 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
-        }
-
-        /// <summary>
-        /// 【查询】按钮单击时执行的代码
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Search_Click(object sender, RoutedEventArgs e)
-        {
-            HttpHelper httpHelper = new HttpHelper();
-            int idx = httpHelper.GetRequestIdx(Combox_date.Text);
-            if (idx < 8)
-            {
-                Photo photo = new Photo(idx);
-                image_Photobox.Source = new BitmapImage(new Uri(photo.HDUrl));
-            }
-            else
-            {
-                Photos photos = new Photos(7, 8);
-                image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
-            }
-
 
         }
 
@@ -227,6 +205,29 @@ namespace New_BingPhoto
         {
             LockScreenWindow lockScreenWindow = new LockScreenWindow();
             lockScreenWindow.ShowDialog();
+        }
+
+        /// <summary>
+        /// 选择日期后查询预览的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Combox_date_DropDownClosed(object sender, EventArgs e)
+        {
+            HttpHelper httpHelper = new HttpHelper();
+            int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            if (idx < 8)
+            {
+                Photo photo = new Photo(idx);
+                Label_copyright.Content = photo.Copyright;
+                image_Photobox.Source = new BitmapImage(new Uri(photo.HDUrl));
+            }
+            else
+            {
+                Photos photos = new Photos(7, 8);
+                Label_copyright.Content = photos.GetAphotoValue(idx - 7).Copyright;
+                image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
+            }
         }
     }
 }

@@ -42,6 +42,14 @@ namespace New_BingPhoto
             {
                 radioButton_Resolving1366.IsChecked = true;
             }
+            if(configHelper.GetValue("BINGPHOTO", "AUTODOWN") == "True")
+            {
+                CheckBox_AutoDownload.IsChecked = true;
+            }
+            if(configHelper.GetValue("BINGPHOTO", "AUTOSET") == "True")
+            {
+                CheckBox_AutoSetWall.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -61,10 +69,41 @@ namespace New_BingPhoto
             {
                 configHelper.SetValue("BINGPHOTO", "RESOV", "1366x768");
             }
+            if (CheckBox_AutoDownload.IsChecked == true)
+            {
+                configHelper.SetValue("BINGPHOTO", "AUTODOWN", true.ToString());
+            }
+            else
+            {
+                configHelper.SetValue("BINGPHOTO", "AUTODOWN", false.ToString());
+            }
+            if (CheckBox_AutoSetWall.IsChecked == true)
+            {
+                configHelper.SetValue("BINGPHOTO", "AUTOSET", true.ToString());
+            }
+            else
+            {
+                configHelper.SetValue("BINGPHOTO", "AUTOSET", false.ToString());
+            }
             //其他设置写在这
 
             //其他设置写在这
             Close();
+        }
+
+        /// <summary>
+        /// 【自动设置壁纸】复选框选中时执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CheckBox_AutoSetWall_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox_AutoDownload.IsChecked = true;
+        }
+
+        private void CheckBox_AutoDownload_Unchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox_AutoSetWall.IsChecked = false;
         }
     }
 }
