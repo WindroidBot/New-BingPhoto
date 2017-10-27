@@ -81,6 +81,7 @@ namespace New_BingPhoto
             {
                 lockscreen.DeleteMoblieLock();
             }
+            System.Windows.MessageBox.Show("导出完成！", "必应美图小助手",MessageBoxButton.OK,MessageBoxImage.Asterisk);
         }
 
         /// <summary>

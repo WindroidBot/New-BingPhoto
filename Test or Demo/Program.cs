@@ -11,6 +11,7 @@ using System.IO;
 using photolib;
 using comlib;
 using System.Windows.Media.Imaging;
+using System.Diagnostics;
 
 namespace Test_or_Demo
 {
@@ -19,10 +20,10 @@ namespace Test_or_Demo
 
         static void Main(string[] args)
         {
-            ConfigHelper configHelper = new ConfigHelper();
-            Lockscreen lockscreen = new Lockscreen(configHelper.GetValue("LOCKSCREEN", "ASSETS"), configHelper.GetValue("LOCKSCREEN", "OUTPATH"));
-            lockscreen.OutputScreen();
-            lockscreen.DeleteMoblieLock();
+            //ConfigHelper configHelper = new ConfigHelper();
+            //Lockscreen lockscreen = new Lockscreen(configHelper.GetValue("LOCKSCREEN", "ASSETS"), configHelper.GetValue("LOCKSCREEN", "OUTPATH"));
+            //lockscreen.OutputScreen();
+            //lockscreen.DeleteMoblieLock();
             //Console.WriteLine(lockscreen.GetAlockScreenValue(40).ImageName);
             //System.IO.File.Copy("C:\\Users\\xiexy\\Pictures\\QQ截图20170410201857.png", "C:\\Users\\xiexy\\Pictures\\test\\QQ截图20170410201857.png", true);
             //lockscreen.ErgodicDirector(configHelper.GetValue("LOCKSCREEN", "ASSETS"));
@@ -48,6 +49,36 @@ namespace Test_or_Demo
                 Console.WriteLine(photos.GetAphotoValue(i).Copyright);
             }
             */
+            /*
+            try
+            {
+
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = @"C:\Users\xiexy\Source\Repos\New BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", //启动的应用程序名称  
+                    Arguments = "aaaa",
+                    WindowStyle = ProcessWindowStyle.Normal
+                };
+                Process.Start(startInfo);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            */
+
+            /*
+            HttpHelper httpHelper = new HttpHelper();
+            ConfigHelper configHelper = new ConfigHelper();
+            Setting setting = new Setting();
+            Photo photo = new Photo(0);
+            string imagedir = configHelper.GetValue("BINGPHOTO", "DIRPATH");
+            httpHelper.DownLoadPhoto(photo.HDUrl);
+            setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photo.HDUrl));
+            */
+            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            autoSettingHelper.AutoActive();
             Console.WriteLine("执行结束！");
             Console.ReadLine();
         }                           

@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoSettingHelper.cs" />
     <Compile Include="Lockscreen.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="Photos.cs" />

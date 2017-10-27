@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using comlib;
+using photolib;
 
 namespace New_BingPhoto
 {
@@ -61,16 +64,27 @@ namespace New_BingPhoto
         [STAThread]
         static int Main(string[] args)
         {
+            
             Process process = RuningInstance();
             if (process == null)
             {
+                if (args.Length != 0)
+                {
+                    MessageBox.Show("传入的参数是：" + args[0].ToString());
+                }
+                else
+                {
+                    MessageBox.Show("未传入参数！");
+                }
                 App app = new App();
                 app.Run(new MainWindow());
+                
             }
             else
             {
                 HandleRunningInstance(process);
-            }           
+            }
+            
             return 0;
         }
     }
