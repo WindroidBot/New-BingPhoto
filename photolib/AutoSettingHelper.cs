@@ -79,5 +79,43 @@ namespace photolib
             AutoDownload(photouri);
             setting.SetWallpaper(Dirpath + "/" + System.IO.Path.GetFileName(photouri));
         }
+
+        /// <summary>
+        /// 在启动目录创建快捷方式，具体动作与传入的参数有关，与该方法无关
+        /// </summary>
+        /// <param name="linkname">快捷方式名</param>
+        /// <param name="arguments">参数</param>
+        /// <param name="description">说明</param>
+        public void SetSetupWindowOpenRun(string linkname, string arguments, string description)
+        {
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + linkname + ".lnk";
+            if (System.IO.File.Exists(desktop))
+            {
+                System.IO.File.Delete(desktop);
+            }               
+            IWshRuntimeLibrary.WshShell shell;
+            IWshRuntimeLibrary.IWshShortcut shortcut;
+            try
+            {
+                shell = new IWshRuntimeLibrary.WshShell();
+                shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(desktop);
+                shortcut.TargetPath = mainpath;//程序路径
+                shortcut.Arguments = arguments;//参数
+                shortcut.Description = description;//描述
+                shortcut.WorkingDirectory = System.IO.Path.GetDirectoryName(mainpath);//程序所在目录
+                shortcut.IconLocation = mainpath;//图标   
+                shortcut.WindowStyle = 1;
+                shortcut.Save();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message, "错误");
+            }
+            finally
+            {
+                shell = null;
+                shortcut = null;
+            }
+        }
     }
 }
