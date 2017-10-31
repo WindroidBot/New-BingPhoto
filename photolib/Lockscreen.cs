@@ -68,7 +68,7 @@ namespace photolib
                     ImageName=file.Name,
                     Extensioin = file.Extension,
                 };
-                //剔除国小的无关图片
+                //剔除过小的无关图片
                 if(alockscreen.Length < 150000)
                 {
                     continue;
@@ -102,18 +102,6 @@ namespace photolib
             foreach (Alockscreen alockscreen in screenList)
             {               
                 System.IO.File.Copy(alockscreen.ImagePath, lockScreenDir + "\\" + alockscreen.ImageName + ".jpg", true);
-
-                
-                /*
-                if (!moblie)
-                {
-                    BitmapImage image = new BitmapImage(new Uri(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg"));
-                    if (image.Height > image.Width)
-                    {
-                        System.IO.File.Delete(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
-                    }
-                }
-                */
             }
         }
 
@@ -166,7 +154,7 @@ namespace photolib
                 if (image.Height > image.Width)
                 {
                     image.Freeze();//释放BitmapImage，文件可以被其他进程操作
-                    System.IO.File.Delete(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
+                    File.Delete(lockScreenDir + "\\" + alockscreen.ImageName + ".jpg");
                 }
             }
         }

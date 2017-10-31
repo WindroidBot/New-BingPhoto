@@ -79,7 +79,9 @@ namespace Test_or_Demo
             */
             //Process.Start(@"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "aaaaaaaa");
             AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
-            autoSettingHelper.SetSetupWindowOpenRun("test", "aaaaa", "测试快捷方式");
+            autoSettingHelper.SetSetupWindowOpenRun("aaaaa", "测试快捷方式");
+            Console.ReadLine();
+            autoSettingHelper.UnSetSetupWindowOpenRun();
             Console.WriteLine("执行结束！");
             Console.ReadLine();
         }                           

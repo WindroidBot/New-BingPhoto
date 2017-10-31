@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using comlib;
+using System.IO;
 
 namespace photolib
 {
@@ -81,24 +82,23 @@ namespace photolib
         }
 
         /// <summary>
-        /// 在启动目录创建快捷方式，具体动作与传入的参数有关，与该方法无关
+        /// 在启动目录创建启动项快捷方式，具体动作与传入的参数有关，与该方法无关
         /// </summary>
-        /// <param name="linkname">快捷方式名</param>
         /// <param name="arguments">参数</param>
         /// <param name="description">说明</param>
-        public void SetSetupWindowOpenRun(string linkname, string arguments, string description)
+        public void SetSetupWindowOpenRun(string arguments, string description)
         {
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + linkname + ".lnk";
-            if (System.IO.File.Exists(desktop))
+            string shortcuturl = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + "必应美图小助手.lnk";
+            if (System.IO.File.Exists(shortcuturl))
             {
-                System.IO.File.Delete(desktop);
+                System.IO.File.Delete(shortcuturl);
             }               
             IWshRuntimeLibrary.WshShell shell;
             IWshRuntimeLibrary.IWshShortcut shortcut;
             try
             {
                 shell = new IWshRuntimeLibrary.WshShell();
-                shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(desktop);
+                shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(shortcuturl);
                 shortcut.TargetPath = mainpath;//程序路径
                 shortcut.Arguments = arguments;//参数
                 shortcut.Description = description;//描述
@@ -116,6 +116,21 @@ namespace photolib
                 shell = null;
                 shortcut = null;
             }
+        }
+
+        /// <summary>
+        /// 删除启动项
+        /// </summary>
+        public void UnSetSetupWindowOpenRun()
+        {
+            try
+            {
+                File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + "必应美图小助手.lnk");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                return;
+            }            
         }
     }
 }

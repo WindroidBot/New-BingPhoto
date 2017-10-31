@@ -60,6 +60,7 @@ namespace New_BingPhoto
         private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
             ConfigHelper configHelper = new ConfigHelper();
+            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
             //分辨率的设置
             if (radioButton_Resolving1080.IsChecked == true)
             {
@@ -69,6 +70,7 @@ namespace New_BingPhoto
             {
                 configHelper.SetValue("BINGPHOTO", "RESOV", "1366x768");
             }
+            //复选框的设置
             if (CheckBox_AutoDownload.IsChecked == true)
             {
                 configHelper.SetValue("BINGPHOTO", "AUTODOWN", true.ToString());
@@ -85,8 +87,15 @@ namespace New_BingPhoto
             {
                 configHelper.SetValue("BINGPHOTO", "AUTOSET", false.ToString());
             }
-            //其他设置写在这
-
+            //开机启动项的设置
+            if ((CheckBox_AutoDownload.IsChecked == true) || (CheckBox_AutoSetWall.IsChecked == true))
+            {
+                autoSettingHelper.SetSetupWindowOpenRun("-autoActive", "开机自动下载、设置壁纸");
+            }
+            else
+            {
+                autoSettingHelper.UnSetSetupWindowOpenRun();
+            }
             //其他设置写在这
             Close();
         }
@@ -99,11 +108,18 @@ namespace New_BingPhoto
         private void CheckBox_AutoSetWall_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox_AutoDownload.IsChecked = true;
+            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
         }
 
+        /// <summary>
+        /// 【自动下载壁纸】复选框取消选中时执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBox_AutoDownload_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox_AutoSetWall.IsChecked = false;
+            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
         }
     }
 }
