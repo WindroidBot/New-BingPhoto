@@ -70,13 +70,13 @@ namespace New_BingPhoto
             {
                 if (args.Length != 0)
                 {
-                    MessageBox.Show("传入的参数是：" + args[0].ToString());
+                    //MessageBox.Show("传入的参数是：" + args[0].ToString());
                     AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
                     autoSettingHelper.AutoActive();
                 }
                 else
                 {
-                    MessageBox.Show("未传入参数！");
+                    //MessageBox.Show("未传入参数！");
                     App app = new App();
                     app.Run(new MainWindow());
                 }

@@ -78,10 +78,19 @@ namespace Test_or_Demo
             setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photo.HDUrl));
             */
             //Process.Start(@"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "aaaaaaaa");
+            /*
             AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
             autoSettingHelper.SetSetupWindowOpenRun("aaaaa", "测试快捷方式");
             Console.ReadLine();
             autoSettingHelper.UnSetSetupWindowOpenRun();
+            */
+
+
+
+
+
+
+
             Console.WriteLine("执行结束！");
             Console.ReadLine();
         }                           
