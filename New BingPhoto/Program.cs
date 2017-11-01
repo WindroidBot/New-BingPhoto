@@ -87,8 +87,7 @@ namespace New_BingPhoto
             else
             {
                 HandleRunningInstance(process);
-            }
-            
+            }            
             return 0;
         }
     }

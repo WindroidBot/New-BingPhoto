@@ -72,5 +72,20 @@ namespace comlib
             string OldWallpaper_path = s.ToString(); //系统桌面背景图片路径
             return OldWallpaper_path;
         }
+
+        #region 声明判断Internet连通性的函数
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(int Description, int ReservedValue);
+        #endregion
+
+        /// <summary>
+        /// 判断Internet连接是否正常，以布尔值返回测试结果
+        /// </summary>
+        /// <returns>Internet连接是否正常的布尔值</returns>
+        public static bool IsConnectInternet()
+        {
+            int Description = 0;
+            return InternetGetConnectedState(Description, 0);
+        }
     }
 }

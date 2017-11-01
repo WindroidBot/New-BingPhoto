@@ -12,12 +12,12 @@ using photolib;
 using comlib;
 using System.Windows.Media.Imaging;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Test_or_Demo
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             //ConfigHelper configHelper = new ConfigHelper();
@@ -86,13 +86,18 @@ namespace Test_or_Demo
             */
 
 
-
-
-
-
-
+            Console.WriteLine(IsConnectInternet());
             Console.WriteLine("执行结束！");
             Console.ReadLine();
-        }                           
+        }
+
+        [DllImport("wininet.dll")]
+        private extern static bool InternetGetConnectedState(int Description, int ReservedValue);
+
+        public static bool IsConnectInternet()
+        {
+            int Description = 0;
+            return InternetGetConnectedState(Description, 0);
+        }
     }
 }
