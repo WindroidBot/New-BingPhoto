@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using comlib;
 using photolib;
+using System.Threading;
 
 namespace New_BingPhoto
 {
@@ -70,9 +71,12 @@ namespace New_BingPhoto
             {
                 if (args.Length != 0)
                 {
-                    //MessageBox.Show("传入的参数是：" + args[0].ToString());
-                    AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
-                    autoSettingHelper.AutoActive();
+                    //MessageBox.Show("传入的参数是：" + args[0].ToString());                   
+                    while (!Setting.IsConnectInternet())
+                    {
+                        Thread.Sleep(500);
+                    }
+                    (new AutoSettingHelper()).AutoActive();
                 }
                 else
                 {

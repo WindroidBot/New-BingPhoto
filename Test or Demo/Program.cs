@@ -13,6 +13,7 @@ using comlib;
 using System.Windows.Media.Imaging;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace Test_or_Demo
 {
@@ -85,19 +86,16 @@ namespace Test_or_Demo
             autoSettingHelper.UnSetSetupWindowOpenRun();
             */
 
+           // AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            while (!Setting.IsConnectInternet())
+            {
+                Console.WriteLine("网络中断，等待网络连接！");
+                Thread.Sleep(500);
+            }
+            //autoSettingHelper.AutoActive();
 
-            Console.WriteLine(IsConnectInternet());
             Console.WriteLine("执行结束！");
             Console.ReadLine();
-        }
-
-        [DllImport("wininet.dll")]
-        private extern static bool InternetGetConnectedState(int Description, int ReservedValue);
-
-        public static bool IsConnectInternet()
-        {
-            int Description = 0;
-            return InternetGetConnectedState(Description, 0);
         }
     }
 }

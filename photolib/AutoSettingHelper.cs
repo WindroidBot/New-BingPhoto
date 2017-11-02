@@ -78,7 +78,7 @@ namespace photolib
 
             Setting setting = new Setting();
             AutoDownload(photouri);
-            setting.SetWallpaper(Dirpath + "/" + System.IO.Path.GetFileName(photouri));
+            setting.SetWallpaper(Dirpath + "/" + Path.GetFileName(photouri));
         }
 
         /// <summary>
