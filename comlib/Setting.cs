@@ -4,12 +4,27 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace comlib
 {
     public class Setting
     {
+        /// <summary>
+        /// 获取当前操作系统的次要版本号
+        /// </summary>
+        /// <returns>当前操作系统的次要版本号</returns>
+        public int GetCurrentVersionMajor()
+        {
+            Version currentVersion = Environment.OSVersion.Version;
+            Console.WriteLine(currentVersion.Major);
+            return currentVersion.Major;
+        }
+
+
         /// <summary>
         /// 获取当前用户“我的文档”绝对路径
         /// </summary>
@@ -79,13 +94,28 @@ namespace comlib
         #endregion
 
         /// <summary>
-        /// 判断Internet连接是否正常，以布尔值返回测试结果
+        /// 循环判断Internet连接是否正常，每500ms检测一次，可以定义检查失败的阈值
         /// </summary>
-        /// <returns>Internet连接是否正常的布尔值</returns>
-        public static bool IsConnectInternet()
+        /// <param name="threshold">检查失败的阈值</param>
+        /// <returns>以布尔值返回检测结果</returns>
+        public static bool TestConnectInternet(int threshold)
         {
             int Description = 0;
-            return InternetGetConnectedState(Description, 0);
+            for(int i = 0; i < threshold; i++)
+            {
+                if (!InternetGetConnectedState(Description, 0))
+                {
+                    Console.WriteLine("[system]Connection Failed"+i);
+                    Thread.Sleep(500);
+                }
+                else
+                {
+                    Console.WriteLine("[system]Connection Successful");
+                    return true;
+                }
+            }
+            //System.Windows.MessageBox.Show("网络连接失败，请检查！\n", "必应美图小助手", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            return false;
         }
     }
 }

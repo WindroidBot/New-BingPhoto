@@ -40,13 +40,23 @@ namespace New_BingPhoto
             ConfigHelper configHelper = new ConfigHelper();
             configHelper.Initialise_ini();
             Lable_dirPath.Content = configHelper.GetValue("BINGPHOTO", "DIRPATH");
-            if ((Environment.OSVersion.Version).Major == 10)
+            if ((new Setting()).GetCurrentVersionMajor() == 10)
             {
                 Button_LockScreen.IsEnabled = true;
             }
             else
             {
                 Button_LockScreen.IsEnabled = false;
+            }
+            if (!Setting.TestConnectInternet(1))
+            {
+                System.Windows.MessageBox.Show("网络连接失败，部分功能将不可用！\n", "必应美图小助手", MessageBoxButton.OK, MessageBoxImage.Error);
+                Combox_date.IsEnabled = false;
+                Button_download.IsEnabled = false;
+                Button_setWall.IsEnabled = false;
+                Button_resetWall.IsEnabled = false;
+                Button_downloadAll.IsEnabled = false;
+                Button_setting.IsEnabled = false;
             }
         }
 

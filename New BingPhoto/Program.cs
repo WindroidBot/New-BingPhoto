@@ -71,16 +71,18 @@ namespace New_BingPhoto
             {
                 if (args.Length != 0)
                 {
-                    //MessageBox.Show("传入的参数是：" + args[0].ToString());                   
-                    while (!Setting.IsConnectInternet())
+                    //MessageBox.Show("传入的参数是：" + args[0].ToString());
+                    //循环检测网络连接
+                    if (!Setting.TestConnectInternet(120))
                     {
-                        Thread.Sleep(500);
+                        MessageBox.Show("网络连接超时，无法刷新壁纸！\n", "必应美图小助手", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return 0;
                     }
                     (new AutoSettingHelper()).AutoActive();
                 }
                 else
                 {
-                    //MessageBox.Show("未传入参数！");
+                    //MessageBox.Show("未传入参数！");                    
                     App app = new App();
                     app.Run(new MainWindow());
                 }

@@ -139,7 +139,7 @@ namespace comlib
             if (!Directory.Exists(PhotoDir))
             {
                 Directory.CreateDirectory(PhotoDir);
-                MessageBox.Show("美图保存目录不存在，并已创建！\n" + PhotoDir,
+                System.Windows.Forms.MessageBox.Show("美图保存目录不存在，并已创建！\n" + PhotoDir,
                 "必应美图小助手", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
             }            

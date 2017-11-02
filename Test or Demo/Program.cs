@@ -86,12 +86,14 @@ namespace Test_or_Demo
             autoSettingHelper.UnSetSetupWindowOpenRun();
             */
 
-           // AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            //AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            /*
             while (!Setting.IsConnectInternet())
             {
                 Console.WriteLine("网络中断，等待网络连接！");
                 Thread.Sleep(500);
             }
+            */
             //autoSettingHelper.AutoActive();
 
             Console.WriteLine("执行结束！");
