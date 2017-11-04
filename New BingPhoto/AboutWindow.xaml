@@ -1,0 +1,15 @@
+﻿<Window x:Class="New_BingPhoto.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:New_BingPhoto"
+        mc:Ignorable="d"
+        Title="AboutWindow" Height="300" Width="300" ShowInTaskbar="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+        </Grid.ColumnDefinitions>
+        <Image HorizontalAlignment="Left" Height="99" Margin="0,173,0,0" VerticalAlignment="Top" Width="100" Source="Resources/aboutimage.jpg"/>
+    </Grid>
+</Window>

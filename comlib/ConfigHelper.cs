@@ -64,7 +64,10 @@ namespace comlib
                 WritePrivateProfileString("LOCKSCREEN", "ASSETS", setting.GetMyAppdataPath()+ "\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "OUTPATH", setting.GetMyDocumentsPath() + "\\BingPhotos\\locksereen", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "MOBLELOCK", false.ToString(), iniPath);
-                
+                //[AUTO]
+                WritePrivateProfileString("AUTO", "LASTDWNDATE", "", iniPath);
+                WritePrivateProfileString("AUTO", "LASTSETDATE", "", iniPath);
+
                 //File.SetAttributes(iniPath, FileAttributes.Hidden); //设置为隐藏文件
                 Console.WriteLine("【system】配置文件不存在，并已创建！");
             }

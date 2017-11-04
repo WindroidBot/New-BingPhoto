@@ -239,5 +239,17 @@ namespace New_BingPhoto
                 image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
             }
         }
+
+        /// <summary>
+        /// 【关于】按钮点击是执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_AboutBox_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow aboutWindow = new AboutWindow();
+            aboutWindow.ShowDialog();
+
+        }
     }
 }

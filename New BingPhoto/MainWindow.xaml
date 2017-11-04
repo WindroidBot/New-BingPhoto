@@ -51,5 +51,6 @@
         <Button x:Name="button_SetDir" Content="更改目录" HorizontalAlignment="Left" Margin="511,108,0,0" VerticalAlignment="Top" Width="76" Click="Button_SetDir_Click"/>
         <Button x:Name="Button_LockScreen" Content="Win10锁屏小助手" HorizontalAlignment="Left" Margin="606,42,0,0" VerticalAlignment="Top" Width="110" Click="Button_LockScreen_Click"/>
         <Label Name="Label_copyright" Content="" HorizontalAlignment="Left" Margin="42,476,0,0" VerticalAlignment="Top" Width="790"/>
+        <Button Name="Button_AboutBox" Content="关于" HorizontalAlignment="Left" Margin="606,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_AboutBox_Click"/>
     </Grid>
 </Window>

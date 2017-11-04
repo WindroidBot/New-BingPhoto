@@ -65,8 +65,17 @@ namespace photolib
         /// <param name="photouri">图片的URL</param>
         private void AutoDownload(string photouri)
         {
+            ConfigHelper configHelper = new ConfigHelper();
             HttpHelper httpHelper = new HttpHelper();
-            httpHelper.DownLoadPhoto(photouri);
+            if(configHelper.GetValue("AUTO", "LASTDWNDATE") != (DateTime.Now).ToShortDateString().ToString())
+            {
+                httpHelper.DownLoadPhoto(photouri);
+                configHelper.SetValue("AUTO", "LASTDWNDATE", (DateTime.Now).ToShortDateString().ToString());
+            }
+            else
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -75,10 +84,18 @@ namespace photolib
         /// <param name="photouri">图片的URL</param>
         private void AutoSetwall(string photouri)
         {
-
+            ConfigHelper configHelper = new ConfigHelper();
             Setting setting = new Setting();
-            AutoDownload(photouri);
-            setting.SetWallpaper(Dirpath + "/" + Path.GetFileName(photouri));
+            if (configHelper.GetValue("AUTO", "LASTSETDATE") != (DateTime.Now).ToShortDateString().ToString())
+            {
+                AutoDownload(photouri);
+                setting.SetWallpaper(Dirpath + "/" + Path.GetFileName(photouri));
+                configHelper.SetValue("AUTO", "LASTSETDATE", (DateTime.Now).ToShortDateString().ToString());
+            }
+            else
+            {
+                return;
+            }           
         }
 
         /// <summary>

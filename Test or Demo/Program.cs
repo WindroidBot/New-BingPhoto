@@ -95,6 +95,8 @@ namespace Test_or_Demo
             }
             */
             //autoSettingHelper.AutoActive();
+            DateTime dateTime = DateTime.Now;
+            Console.WriteLine(dateTime.ToShortDateString().ToString());
 
             Console.WriteLine("执行结束！");
             Console.ReadLine();

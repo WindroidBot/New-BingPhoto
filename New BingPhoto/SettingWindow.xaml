@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:New_BingPhoto"
         mc:Ignorable="d"
-        Title="SettingWindow" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="SettingWindow" Height="300" Width="300" Loaded="Window_Loaded" ShowInTaskbar="False">
     <Grid>
         <Label x:Name="label_Resolving" Content="选择图片分辨率：" HorizontalAlignment="Left" Margin="37,24,0,0" VerticalAlignment="Top"/>
         <RadioButton GroupName="radioButton_Resolving" x:Name="radioButton_Resolving1080" Content="1920 X 1080" HorizontalAlignment="Left" Margin="54,46,0,0" VerticalAlignment="Top"/>
