@@ -67,6 +67,7 @@ namespace photolib
         {
             ConfigHelper configHelper = new ConfigHelper();
             HttpHelper httpHelper = new HttpHelper();
+            //检查配置文件日期，避免重复操作
             if(configHelper.GetValue("AUTO", "LASTDWNDATE") != (DateTime.Now).ToShortDateString().ToString())
             {
                 httpHelper.DownLoadPhoto(photouri);
@@ -86,6 +87,7 @@ namespace photolib
         {
             ConfigHelper configHelper = new ConfigHelper();
             Setting setting = new Setting();
+            //检查配置文件日期，避免重复操作
             if (configHelper.GetValue("AUTO", "LASTSETDATE") != (DateTime.Now).ToShortDateString().ToString())
             {
                 AutoDownload(photouri);

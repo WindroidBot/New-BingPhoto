@@ -34,6 +34,7 @@ namespace New_BingPhoto
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ConfigHelper configHelper = new ConfigHelper();
+            //读取配置文件，并从窗体体现
             if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
             {
                 radioButton_Resolving1080.IsChecked = true;

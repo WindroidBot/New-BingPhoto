@@ -95,8 +95,14 @@ namespace Test_or_Demo
             }
             */
             //autoSettingHelper.AutoActive();
+
+            /*
             DateTime dateTime = DateTime.Now;
             Console.WriteLine(dateTime.ToShortDateString().ToString());
+            */
+
+            SchtasksHelper schtasksHelper = new SchtasksHelper("testtask", @"C:\Users\windr\source\repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:24:00");
+            schtasksHelper.CreateSchtask();
 
             Console.WriteLine("执行结束！");
             Console.ReadLine();
