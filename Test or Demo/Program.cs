@@ -95,8 +95,10 @@ namespace Test_or_Demo
             }
             */
             //autoSettingHelper.AutoActive();
-            DateTime dateTime = DateTime.Now;
-            Console.WriteLine(dateTime.ToShortDateString().ToString());
+            //DateTime dateTime = DateTime.Now;
+            //Console.WriteLine(dateTime.ToShortDateString().ToString());
+            Photo photo = new Photo(0);
+            Console.WriteLine(photo.PublicName);
 
             Console.WriteLine("执行结束！");
             Console.ReadLine();

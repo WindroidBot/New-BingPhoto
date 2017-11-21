@@ -60,6 +60,7 @@ namespace comlib
                 WritePrivateProfileString("BINGPHOTO", "RESOV", "1920x1080", iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTODOWN", false.ToString(), iniPath);
                 WritePrivateProfileString("BINGPHOTO", "AUTOSET", false.ToString(), iniPath);
+                WritePrivateProfileString("BINGPHOTO", "PUBLICNAME", false.ToString(), iniPath);
                 //[LOCKSCREEN]
                 WritePrivateProfileString("LOCKSCREEN", "ASSETS", setting.GetMyAppdataPath()+ "\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "OUTPATH", setting.GetMyDocumentsPath() + "\\BingPhotos\\locksereen", iniPath);

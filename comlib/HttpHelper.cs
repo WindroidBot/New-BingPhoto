@@ -142,8 +142,9 @@ namespace comlib
                 System.Windows.Forms.MessageBox.Show("美图保存目录不存在，并已创建！\n" + PhotoDir,
                 "必应美图小助手", MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
-            }            
-            if (File.Exists(configHelper.GetValue("BINGPHOTO","DIRPATH") + "/" + System.IO.Path.GetFileName(fileUrl)))
+            }
+            //判断文件是否存在，若存在则直接返回
+            if (File.Exists(configHelper.GetValue("BINGPHOTO","DIRPATH") + "/" + Path.GetFileName(fileUrl)))
             {
                 Console.WriteLine("【system】文件已存在");
                 return;
@@ -158,6 +159,43 @@ namespace comlib
             {
                 Console.WriteLine("【system】下载失败！");
             }            
+        }
+
+        /// <summary>
+        /// 下载图片
+        /// </summary>
+        /// <param name="fileUrl">壁纸的URL</param>
+        /// <param name="fileName">自定义文件名</param>
+        public void DownLoadPhoto(string fileUrl,string fileName)
+        {
+            Setting setting = new Setting();
+            ConfigHelper configHelper = new ConfigHelper();
+            string PhotoDir = configHelper.GetValue("BINGPHOTO", "DIRPATH");
+            //Console.WriteLine("【system】读取到的图片保存目录是：" + PhotoDir);
+            if (!Directory.Exists(PhotoDir))
+            {
+                Directory.CreateDirectory(PhotoDir);
+                System.Windows.Forms.MessageBox.Show("美图保存目录不存在，并已创建！\n" + PhotoDir,
+                "必应美图小助手", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                Console.WriteLine("【system】图片目录不存在，并已创建，在" + PhotoDir);
+            }
+            //判断文件是否存在，若存在则直接返回
+            if (File.Exists(configHelper.GetValue("BINGPHOTO", "DIRPATH") + "/" + fileName + ".jpg"))
+            {
+                Console.WriteLine("【system】文件已存在");
+                return;
+            }           
+            WebClient webClient = new WebClient();
+            try
+            {
+                //webClient.DownloadFile(fileUrl, PhotoDir + "/" + Path.GetFileName(fileUrl));
+                webClient.DownloadFile(fileUrl, PhotoDir + "/" + fileName + ".jpg");
+                Console.WriteLine("【system】下载成功！");
+            }
+            catch (System.Net.WebException)
+            {
+                Console.WriteLine("【system】下载失败！");
+            }
         }
     }
 }

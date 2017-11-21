@@ -172,7 +172,8 @@ namespace New_BingPhoto
                 Photo photo = new Photo(idx);
                 if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
-                    httpHelper.DownLoadPhoto(photo.HDUrl);
+                    //httpHelper.DownLoadPhoto(photo.HDUrl);
+                    httpHelper.DownLoadPhoto(photo.HDUrl, photo.PublicName);
                 }
                 else
                 {
@@ -184,7 +185,8 @@ namespace New_BingPhoto
                 Photos photos = new Photos(7, 8);
                 if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
-                    httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
+                    //httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
+                    httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl, photos.GetAphotoValue(idx - 7).Copyright);
                 }
                 else
                 {

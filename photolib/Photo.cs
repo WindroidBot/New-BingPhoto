@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using comlib;
+using System.Text.RegularExpressions;
 
 namespace photolib
 {
@@ -15,12 +16,14 @@ namespace photolib
         private string hDUrl;//1920x1080 分辨率图片URL
         private string wXGAUrl;//1366x768 分辨率图片URL
         private string copyright;//版权与说明信息
+        private string publicName;//更加友好的文件名
 
         public int Startdate { get => enddate; set => enddate = value; }
         public string RequestStr { get => requestStr; set => requestStr = value; }
         public string HDUrl { get => hDUrl; set => hDUrl = value; }
         public string WXGAUrl { get => wXGAUrl; set => wXGAUrl = value; }
         public string Copyright { get => copyright; set => copyright = value; }
+        public string PublicName { get => publicName; set => publicName = value; }
 
         /// <summary>
         /// 
@@ -37,6 +40,14 @@ namespace photolib
             this.hDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "url");
             this.wXGAUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "urlbase") + "_1366x768.jpg";
             this.copyright = httpHelper.GetJsonValue(requestJson, 0, "copyright");
+            this.publicName = GetPublicName();
+        }
+
+        private string GetPublicName()
+        {
+            string[] sArray = Regex.Split(copyright, "，", RegexOptions.IgnoreCase);
+            Console.WriteLine(sArray[0]);
+            return sArray[0];
         }
     }
 }
