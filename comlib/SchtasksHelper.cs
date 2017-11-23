@@ -65,7 +65,7 @@ namespace comlib
         /// </summary>
         public void CreateSchtask()
         {
-            string schtaskString = @"schtasks /create /SC " + periodicUnit + @" /MO " + periodic + @" /TN " + schtaskName + @" /TR " + "\"\"\"\"" + exePath + "\"\"\" " + paraMeter + "\"" + @" /ST " + startTime;
+            string schtaskString = @"schtasks /create /SC " + periodicUnit + @" /MO " + periodic + @" /TN " + "\""+schtaskName+"\"" + @" /TR " + "\"\"\"\"" + exePath + "\"\"\" " + paraMeter + "\"" + @" /ST " + startTime;
             Console.WriteLine("[system]Your Cmdlet String is:" + schtaskString);
             CmdHelper.RunCmd(schtaskString);
         }
