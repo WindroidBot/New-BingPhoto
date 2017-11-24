@@ -91,11 +91,20 @@ namespace New_BingPhoto
             //开机启动项的设置
             if ((CheckBox_AutoDownload.IsChecked == true) || (CheckBox_AutoSetWall.IsChecked == true))
             {
+                //设置启动项
+                string exePath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
                 autoSettingHelper.SetSetupWindowOpenRun("-autoActive", "开机自动下载、设置壁纸");
+                //设置计划任务
+                TaskSchedulerHelper.DeleteTaskScheduler("New BingPhoto");
+                SchtasksHelper schtasksHelper = new SchtasksHelper("New BingPhoto", exePath, "-autoActive", "DAILY", "1", "00:01:00");
+                schtasksHelper.CreateSchtask();
             }
             else
             {
+                //删除启动项
                 autoSettingHelper.UnSetSetupWindowOpenRun();
+                //删除计划任务
+                TaskSchedulerHelper.DeleteTaskScheduler("New BingPhoto");
             }
             //其他设置写在这
             Close();

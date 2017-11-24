@@ -101,10 +101,12 @@ namespace Test_or_Demo
             Console.WriteLine(dateTime.ToShortDateString().ToString());
             */
 
-            SchtasksHelper schtasksHelper = new SchtasksHelper("testtask", @"C:\Users\windr\source\repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:01:00");
+            //string a = @"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe";
+            //ConfigHelper configHelper = new ConfigHelper();
+            //string exePath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
+            //设置计划任务
+            SchtasksHelper schtasksHelper = new SchtasksHelper(@"New BingPhoto", @"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:01:00");
             schtasksHelper.CreateSchtask();
-
-            //TaskSchedulerHelper.DeleteTaskScheduler("testtask");
 
             Console.WriteLine("执行结束！");
             Console.ReadLine();
