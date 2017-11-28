@@ -151,6 +151,15 @@ namespace New_BingPhoto
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 ConfigHelper configHelper = new ConfigHelper();
+                string oldpath = configHelper.GetValue("BINGPHOTO", "DIRPATH");
+                if (folderBrowserDialog.SelectedPath == oldpath)
+                {
+                    return;
+                }
+                if(System.Windows.MessageBox.Show("您更改了图片目录，是否要迁移图片？", "提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    Setting.MoveFiles(oldpath, folderBrowserDialog.SelectedPath);
+                }
                 Lable_dirPath.Content = folderBrowserDialog.SelectedPath;
                 configHelper.SetValue("BINGPHOTO", "DIRPATH", folderBrowserDialog.SelectedPath);
             }

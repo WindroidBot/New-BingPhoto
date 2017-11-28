@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -116,6 +117,29 @@ namespace comlib
             }
             //System.Windows.MessageBox.Show("网络连接失败，请检查！\n", "必应美图小助手", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             return false;
+        }
+
+        /// <summary>
+        /// 循环移动指定目录中的文件到另一个目录
+        /// </summary>
+        /// <param name="sourcedir">源目录</param>
+        /// <param name="destdir">目的目录</param>
+        public static void MoveFiles(string sourcedir,string destdir)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo(sourcedir);
+            foreach(FileInfo nextFile in directoryInfo.GetFiles())
+            {
+                try
+                {
+                    nextFile.MoveTo(destdir + "\\" + nextFile.Name);
+                }
+                catch(System.IO.IOException e)
+                {
+                    Console.WriteLine("[system]" + nextFile.Name + "\n" + e);
+                    continue;
+                }                                
+                Console.WriteLine("[system]File Name:" + nextFile.Name);
+            }
         }
     }
 }

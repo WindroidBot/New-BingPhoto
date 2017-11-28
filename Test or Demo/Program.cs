@@ -105,8 +105,13 @@ namespace Test_or_Demo
             //ConfigHelper configHelper = new ConfigHelper();
             //string exePath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
             //设置计划任务
-            SchtasksHelper schtasksHelper = new SchtasksHelper(@"New BingPhoto", @"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:01:00");
-            schtasksHelper.CreateSchtask();
+
+            //SchtasksHelper schtasksHelper = new SchtasksHelper(@"New BingPhoto", @"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:01:00");
+            //schtasksHelper.CreateSchtask();
+
+            ConfigHelper configHelper = new ConfigHelper();
+            Setting.MoveFiles(@"C:\Users\windr\Pictures\Saved Pictures", @"C:\Users\windr\Pictures");
+
 
             Console.WriteLine("执行结束！");
             Console.ReadLine();
