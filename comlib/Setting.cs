@@ -133,7 +133,7 @@ namespace comlib
                 {
                     nextFile.MoveTo(destdir + "\\" + nextFile.Name);
                 }
-                catch(System.IO.IOException e)
+                catch(IOException e)
                 {
                     Console.WriteLine("[system]" + nextFile.Name + "\n" + e);
                     continue;

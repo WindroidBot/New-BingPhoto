@@ -1,0 +1,17 @@
+﻿<Window x:Class="Test_Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <ProgressBar x:Name="ProgressBar_test" HorizontalAlignment="Left" Height="19" Margin="20,150,0,0" VerticalAlignment="Top" Width="365"/>
+        <Button x:Name="Button_Start" Content="start" HorizontalAlignment="Left" Margin="64,82,0,0" VerticalAlignment="Top" Width="75" Click="Button_Start_Click"/>
+        <Button x:Name="Button_Stop" Content="stop" HorizontalAlignment="Left" Margin="187,82,0,0" VerticalAlignment="Top" Width="75" Click="Button_Stop_Click"/>
+        <Button x:Name="Button_1" Content="+" HorizontalAlignment="Left" Margin="379,36,0,0" VerticalAlignment="Top" Width="75" Click="Button_1_Click"/>
+        <Button x:Name="Button_2" Content="-" HorizontalAlignment="Left" Margin="379,68,0,0" VerticalAlignment="Top" Width="75" Click="Button_2_Click"/>
+
+    </Grid>
+</Window>

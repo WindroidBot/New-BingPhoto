@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New BingPhoto", "New BingPhoto\New BingPhoto.csproj", "{B5B9D053-57DA-46C9-82DA-7AFBD28FDCA7}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "photolib", "photolib\photolib.csproj", "{82D2E88B-EDBC-4F41-817A-A441D1DDE4A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundConsole", "BackgroundConsole\BackgroundConsole.csproj", "{039751EE-7F6A-4469-9059-21840ACB13BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Wpf", "Test Wpf\Test Wpf.csproj", "{04BF9A10-4F0E-406C-A3C2-A83D961C764E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{039751EE-7F6A-4469-9059-21840ACB13BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{039751EE-7F6A-4469-9059-21840ACB13BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{039751EE-7F6A-4469-9059-21840ACB13BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BF9A10-4F0E-406C-A3C2-A83D961C764E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BF9A10-4F0E-406C-A3C2-A83D961C764E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BF9A10-4F0E-406C-A3C2-A83D961C764E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BF9A10-4F0E-406C-A3C2-A83D961C764E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
