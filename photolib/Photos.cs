@@ -16,12 +16,14 @@ namespace photolib
         private string hDUrl;//1920x1080分辨率URL
         private string wXGAUrl;//1366x768分辨率URL
         private string copyright;//版权与说明信息
+        private string hash;//图片的hash值
 
         public int Jsonindex { get => jsonindex; set => jsonindex = value; }
         public int Startdate { get => enddate; set => enddate = value; }
         public string HDUrl { get => hDUrl; set => hDUrl = value; }
         public string WXGAUrl { get => wXGAUrl; set => wXGAUrl = value; }
         public string Copyright { get => copyright; set => copyright = value; }
+        public string Hash { get => hash; set => hash = value; }
     }
 
     public class Photos
@@ -60,6 +62,7 @@ namespace photolib
                     HDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "url"),
                     WXGAUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, n, "urlbase") + "_1366x768.jpg",
                     Copyright = httpHelper.GetJsonValue(requestJson, n, "copyright"),
+                    Hash = httpHelper.GetJsonValue(requestJson, n, "hsh"),
                 };
                 //Console.WriteLine(aphoto.Startdate + aphoto.HDUrl + aphoto.Copyright);
                 photocontainer.Add(aphoto);
