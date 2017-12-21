@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,7 +25,6 @@ namespace comlib
             Console.WriteLine(currentVersion.Major);
             return currentVersion.Major;
         }
-
 
         /// <summary>
         /// 获取当前用户“我的文档”绝对路径
@@ -54,6 +54,32 @@ namespace comlib
         {
             string str = Process.GetCurrentProcess().MainModule.FileName;
             return str;
+        }
+
+        /// <summary>
+        /// 获取指定文件的md5值
+        /// </summary>
+        /// <param name="fileName">完整的文件名</param>
+        /// <returns>文件的md5值</returns>
+        public string GetMD5HashFromFile(string fileName)
+        {
+            try
+            {
+                FileStream file = new FileStream(fileName, System.IO.FileMode.Open);
+                MD5 md5 = new MD5CryptoServiceProvider();
+                byte[] retVal = md5.ComputeHash(file);
+                file.Close();
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < retVal.Length; i++)
+                {
+                    sb.Append(retVal[i].ToString("x2"));
+                }
+                return sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("[system]" + ex.Message);
+            }
         }
 
         #region 声明设置壁纸的函数

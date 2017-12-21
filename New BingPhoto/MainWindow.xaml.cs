@@ -40,6 +40,7 @@ namespace New_BingPhoto
             ConfigHelper configHelper = new ConfigHelper();
             configHelper.Initialise_ini();
             Lable_dirPath.Content = configHelper.GetValue("BINGPHOTO", "DIRPATH");
+            //判断用户操作系统版本，若不为Win10，则导出“聚焦”图片功能不可用
             if ((new Setting()).GetCurrentVersionMajor() == 10)
             {
                 Button_LockScreen.IsEnabled = true;

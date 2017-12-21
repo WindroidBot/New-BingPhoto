@@ -109,8 +109,9 @@ namespace Test_or_Demo
             //SchtasksHelper schtasksHelper = new SchtasksHelper(@"New BingPhoto", @"C:\Users\windr\Source\Repos\New-BingPhoto\New BingPhoto\bin\Debug\New BingPhoto.exe", "-autoActive", "DAILY", "1", "00:01:00");
             //schtasksHelper.CreateSchtask();
 
-            ConfigHelper configHelper = new ConfigHelper();
-            Setting.MoveFiles(@"C:\Users\windr\Pictures\Saved Pictures", @"C:\Users\windr\Pictures");
+            Setting setting = new Setting();
+            Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_JA-JP8186875426_1920x1080.jpg"));
+            Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_ZH-CN7496591838_1920x1080.jpg"));
 
 
             Console.WriteLine("执行结束！");
