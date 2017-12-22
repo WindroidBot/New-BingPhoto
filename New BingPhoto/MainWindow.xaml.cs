@@ -83,9 +83,10 @@ namespace New_BingPhoto
             ConfigHelper configHelper = new ConfigHelper();
             string imagedir = configHelper.GetValue("BINGPHOTO","DIRPATH");
             int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            string mkt = httpHelper.GetRequestMkt(Combox_country.Text);
             if (idx < 8)
             {
-                Photo photo = new Photo(idx);
+                Photo photo = new Photo(idx, mkt);
                 httpHelper.DownLoadPhoto(photo.HDUrl);
                 setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photo.HDUrl));
             }
@@ -177,9 +178,10 @@ namespace New_BingPhoto
             HttpHelper httpHelper = new HttpHelper();
             ConfigHelper configHelper = new ConfigHelper();
             int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            string mkt = httpHelper.GetRequestMkt(Combox_country.Text);
             if (idx < 8)
             {
-                Photo photo = new Photo(idx);
+                Photo photo = new Photo(idx, mkt);
                 if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
                     //httpHelper.DownLoadPhoto(photo.HDUrl);
@@ -238,9 +240,11 @@ namespace New_BingPhoto
         {
             HttpHelper httpHelper = new HttpHelper();
             int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            string mkt = httpHelper.GetRequestMkt(Combox_country.Text);
             if (idx < 8)
             {
-                Photo photo = new Photo(idx);
+                Photo photo = new Photo(idx,mkt);
+                Console.WriteLine(photo.RequestStr);
                 Label_copyright.Content = photo.Copyright;
                 image_Photobox.Source = new BitmapImage(new Uri(photo.HDUrl));
             }
@@ -262,6 +266,30 @@ namespace New_BingPhoto
             AboutWindow aboutWindow = new AboutWindow();
             aboutWindow.ShowDialog();
 
+        }
+
+        /// <summary>
+        /// 【查询】按钮点击是执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Search_Click(object sender, RoutedEventArgs e)
+        {
+            HttpHelper httpHelper = new HttpHelper();
+            int idx = httpHelper.GetRequestIdx(Combox_date.Text);
+            string mkt = httpHelper.GetRequestMkt(Combox_country.Text);
+            if (idx < 8)
+            {
+                Photo photo = new Photo(idx, mkt);
+                Label_copyright.Content = photo.Copyright;
+                image_Photobox.Source = new BitmapImage(new Uri(photo.HDUrl));
+            }
+            else
+            {
+                Photos photos = new Photos(7, 8);
+                Label_copyright.Content = photos.GetAphotoValue(idx - 7).Copyright;
+                image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace photolib
         {
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
-            Photo photo = new Photo(0);
+            Photo photo = new Photo(0, "zh-cn");
             Inipath = setting.GetMyDocumentsPath() + "\\bingphoto.ini";
             Mainpath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
             Dirpath = configHelper.GetValue("BINGPHOTO", "DIRPATH");

@@ -9,7 +9,7 @@
     <Grid>
         <Label x:Name="Label_date" Content="时       间   ：" HorizontalAlignment="Left" Margin="42,42,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Label_country" Content="国家或地区：" HorizontalAlignment="Left" Margin="42,72,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Combox_date" HorizontalAlignment="Left" Margin="128,46,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" SelectedIndex="1" IsTabStop="False" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto" DropDownClosed="Combox_date_DropDownClosed">
+        <ComboBox x:Name="Combox_date" HorizontalAlignment="Left" Margin="128,46,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" SelectedIndex="1" IsTabStop="False" RenderTransformOrigin="0.5,0.5" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <ComboBoxItem Content="明天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="今天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="昨天" HorizontalAlignment="Left" Width="118"/>
@@ -27,7 +27,7 @@
             <ComboBoxItem Content="前13天" HorizontalAlignment="Left" Width="118"/>
             <ComboBoxItem Content="前14天" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
-        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="128,76,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False" IsEnabled="False">
+        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="128,76,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False">
             <ComboBoxItem Content="中国" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="日本" HorizontalAlignment="Left" Width="133"/>
             <ComboBoxItem Content="印度" HorizontalAlignment="Left" Width="133"/>
@@ -52,5 +52,6 @@
         <Button x:Name="Button_LockScreen" Content="Win10锁屏小助手" HorizontalAlignment="Left" Margin="606,42,0,0" VerticalAlignment="Top" Width="110" Click="Button_LockScreen_Click"/>
         <Label Name="Label_copyright" Content="" HorizontalAlignment="Left" Margin="42,476,0,0" VerticalAlignment="Top" Width="790"/>
         <Button Name="Button_AboutBox" Content="关于" HorizontalAlignment="Left" Margin="606,150,0,0" VerticalAlignment="Top" Width="75" Click="Button_AboutBox_Click"/>
+        <Button Name="Button_Search"  Content="查询" HorizontalAlignment="Left" Margin="332,42,0,0" VerticalAlignment="Top" Width="75" Click="Button_Search_Click"/>
     </Grid>
 </Window>
