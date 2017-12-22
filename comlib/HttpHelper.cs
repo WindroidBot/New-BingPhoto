@@ -66,7 +66,7 @@ namespace comlib
         /// <returns>请求字符串</returns>
        public string GetRequestUrl(int idx,int n)
         {
-            string RequestUrl = "http://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + idx + "&n=" + n;
+            string RequestUrl = "http://www.bing.com/HPImageArchive.aspx?format=js&idx=" + idx + "&n=" + n;
             return RequestUrl;
         }            
         
