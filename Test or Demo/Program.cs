@@ -110,8 +110,8 @@ namespace Test_or_Demo
             //schtasksHelper.CreateSchtask();
 
             Setting setting = new Setting();
-            Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_JA-JP8186875426_1920x1080.jpg"));
-            Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_ZH-CN7496591838_1920x1080.jpg"));
+            //Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_JA-JP8186875426_1920x1080.jpg"));
+            Console.WriteLine(setting.GetMD5HashFromFile(@"C:\Users\windr\OneDrive\图片\BingPhoto\Snowflake_ZH-CN7496591838_1920x1080.jpg"));
 
 
             Console.WriteLine("执行结束！");
