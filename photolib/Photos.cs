@@ -50,7 +50,7 @@ namespace photolib
         {
             this.resultSum = resultSum;
             HttpHelper httpHelper = new HttpHelper();
-            this.requestStr = httpHelper.GetRequestUrl(idx, resultSum);
+            this.requestStr = httpHelper.GetRequestUrl(idx, resultSum, "zh-cn");
             string requestJson = httpHelper.GetHttpData(this.requestStr);
             //批量增加数据集合
             for(int n = 0; n < this.resultSum; n++)

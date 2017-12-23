@@ -17,8 +17,8 @@ namespace comlib
         /// <summary>
         /// 将输入转化为API对应的时间参数，最多至前14天
         /// </summary>
-        /// <param name="idstr"></param>
-        /// <returns></returns>
+        /// <param name="idstr">输入的相对时间参数</param>
+        /// <returns>api中的idx可接受的值</returns>
         public int GetRequestIdx(string idstr)
         {
             switch (idstr)
@@ -57,16 +57,50 @@ namespace comlib
                     return 14;
             }
             return -2;
-        }       
+        }
+
+        /// <summary>
+        /// 将输入转化为API对应的国家参数
+        /// </summary>
+        /// <param name="mktstr">输入的国家参数</param>
+        /// <returns>api中的mkt可接受的值</returns>
+        public string GetRequestMkt(string mktstr)
+        {
+            switch (mktstr)
+            {
+                case "中国":
+                    return "zh-cn";
+                case "日本":
+                    return "ja-jp";
+                case "印度":
+                    return "en-in";
+                case "德国":
+                    return "de-de";
+                case "法国":
+                    return "fr-fr";
+                case "英国":
+                    return "en-gb";
+                case "巴西":
+                    return "pt-br";
+                case "加拿大":
+                    return "en-ca";
+                case "美国":
+                    return "en-us";
+                case "澳大利亚":
+                    return "en-au";
+            }
+            return "";
+        }
+
         /// <summary>
         /// 构造请求字符串
         /// </summary>
         /// <param name="idx">相对日期参数</param>
         /// <param name="n">结果集数量</param>
         /// <returns>请求字符串</returns>
-       public string GetRequestUrl(int idx,int n)
+       public string GetRequestUrl(int idx,int n,string mkt)
         {
-            string RequestUrl = "http://cn.bing.com/HPImageArchive.aspx?format=js&idx=" + idx + "&n=" + n;
+            string RequestUrl = "http://www.bing.com/HPImageArchive.aspx?format=js&idx=" + idx + "&n=" + n + "&mkt=" + mkt;
             return RequestUrl;
         }            
         
@@ -119,10 +153,10 @@ namespace comlib
         /// <param name="index">结果集元素的索引</param>
         /// <param name="key">元素中的字段</param>
         /// <returns>json中的字段值</returns>                   
-        public string DirectGetJsonValue(int idx, int n, int index, string key)
+        public string DirectGetJsonValue(int idx, int n,string mkt ,int index, string key)
         {
             HttpHelper httpHelper = new HttpHelper();
-            return httpHelper.GetJsonValue(httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, n)), index, key);
+            return httpHelper.GetJsonValue(httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, n, mkt)), index, key);
         }
 
         /// <summary>

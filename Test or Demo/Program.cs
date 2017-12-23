@@ -111,7 +111,11 @@ namespace Test_or_Demo
 
             Setting setting = new Setting();
             //Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_JA-JP8186875426_1920x1080.jpg"));
-            Console.WriteLine(setting.GetMD5HashFromFile(@"C:\Users\windr\OneDrive\图片\BingPhoto\Snowflake_ZH-CN7496591838_1920x1080.jpg"));
+            //Console.WriteLine(setting.GetMD5HashFromFile(@"\Snowflake_ZH-CN7496591838_1920x1080.jpg"));
+            Photo photo1 = new Photo(1, "zh-cn");
+            Photo photo2 = new Photo(1, "ja-jp");
+            Console.WriteLine(photo1.Copyright);
+            Console.WriteLine(photo2.Copyright);
 
 
             Console.WriteLine("执行结束！");
