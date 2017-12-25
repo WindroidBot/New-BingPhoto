@@ -141,9 +141,9 @@ namespace comlib
         /// <returns>json字段的值</returns>
         public string GetJsonValue(string jsonstr, int index, string key)
         {
-            //JObject jsonObj = JObject.Parse(jsonstr);
-            //return jsonObj["images"][index][key].ToString();
-            return "test";
+            JObject jsonObj = JObject.Parse(jsonstr);
+            return jsonObj["images"][index][key].ToString();
+            //return "test";
         }
 
         /// <summary>

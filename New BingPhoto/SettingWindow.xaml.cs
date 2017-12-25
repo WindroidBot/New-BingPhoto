@@ -64,7 +64,7 @@ namespace New_BingPhoto
         private void Button_OK_Click(object sender, RoutedEventArgs e)
         {
             ConfigHelper configHelper = new ConfigHelper();
-            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            AutoSettingHelper autoSettingHelper = new AutoSettingHelper("setting");
             //分辨率的设置
             if (radioButton_Resolving1080.IsChecked == true)
             {
@@ -136,6 +136,11 @@ namespace New_BingPhoto
             //AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
         }
 
+        /// <summary>
+        /// 【自动设置壁纸】复选框取消选中时执行的代码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBox_AutoSetWall_Unchecked(object sender, RoutedEventArgs e)
         {
             if (CheckBox_AutoDownload.IsChecked == false)

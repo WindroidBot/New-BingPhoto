@@ -24,6 +24,28 @@ namespace photolib
         public string Dirpath { get => dirpath; set => dirpath = value; }
         public string PhotoURI { get => photoURI; set => photoURI = value; }
 
+        public AutoSettingHelper(string args)
+        {
+            if (string.Equals(args, "setting"))
+            {
+                Setting setting = new Setting();
+                ConfigHelper configHelper = new ConfigHelper();
+                Inipath = setting.GetMyDocumentsPath() + "\\bingphoto.ini";
+                Mainpath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
+                Dirpath = configHelper.GetValue("BINGPHOTO", "DIRPATH");
+                AutoDownloadPhoto = Convert.ToBoolean(configHelper.GetValue("BINGPHOTO", "AUTODOWN"));
+                AutoSetWall = Convert.ToBoolean(configHelper.GetValue("BINGPHOTO", "AUTOSET"));
+                PhotoURI = null;
+            }
+        }
+
+
+
+
+
+
+
+
         public AutoSettingHelper()
         {
             Setting setting = new Setting();
