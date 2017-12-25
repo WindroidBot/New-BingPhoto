@@ -12,7 +12,20 @@
         <RadioButton GroupName="radioButton_Resolving" x:Name="radioButton_Resolving1366" Content="1366 X 768" HorizontalAlignment="Left" Margin="54,65,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button_OK" Content="确定" HorizontalAlignment="Left" Margin="197,230,0,0" VerticalAlignment="Top" Width="75" Click="Button_OK_Click"/>
         <CheckBox Name="CheckBox_AutoDownload" Content="每天自动下载当天必应美图" HorizontalAlignment="Left" Margin="37,105,0,0" VerticalAlignment="Top" Unchecked="CheckBox_AutoDownload_Unchecked"/>
-        <CheckBox Name="CheckBox_AutoSetWall" Content="每天自动设置当天必应美图为壁纸" HorizontalAlignment="Left" Margin="37,135,0,0" VerticalAlignment="Top" Checked="CheckBox_AutoSetWall_Checked"/>
+        <CheckBox Name="CheckBox_AutoSetWall" Content="每天自动设置当天必应美图为壁纸" HorizontalAlignment="Left" Margin="37,135,0,0" VerticalAlignment="Top" Checked="CheckBox_AutoSetWall_Checked" Unchecked="CheckBox_AutoSetWall_Unchecked"/>
+        <ComboBox x:Name="Combox_country" HorizontalAlignment="Left" Margin="124,167,0,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Center" SelectedIndex="0" IsTabStop="False">
+            <ComboBoxItem Content="中国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="日本" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="印度" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="德国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="法国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="英国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="巴西" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="美国" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="加拿大" HorizontalAlignment="Left" Width="133"/>
+            <ComboBoxItem Content="澳大利亚" HorizontalAlignment="Left" Width="133"/>
+        </ComboBox>
+        <Label Name="Label_AutoMkt" Content="国家或地区：" HorizontalAlignment="Left" Margin="37,165,0,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Auto" />
 
     </Grid>
 </Window>

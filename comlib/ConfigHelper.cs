@@ -66,6 +66,7 @@ namespace comlib
                 WritePrivateProfileString("LOCKSCREEN", "OUTPATH", setting.GetMyDocumentsPath() + "\\BingPhotos\\locksereen", iniPath);
                 WritePrivateProfileString("LOCKSCREEN", "MOBLELOCK", false.ToString(), iniPath);
                 //[AUTO]
+                WritePrivateProfileString("AUTO", "MKT", "", iniPath);
                 WritePrivateProfileString("AUTO", "LASTDWNDATE", "", iniPath);
                 WritePrivateProfileString("AUTO", "LASTSETDATE", "", iniPath);
 
