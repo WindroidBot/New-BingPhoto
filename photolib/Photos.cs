@@ -46,11 +46,12 @@ namespace photolib
         /// </summary>
         /// <param name="idx">API中的idx字段（相对时间参数）</param>
         /// <param name="resultSum">API中的n字段（返回的结果数目）</param>
-        public Photos(int idx, int resultSum)
+        /// <param name="mkt">API中的mkt字段（国家代码）</param>
+        public Photos(int idx, int resultSum,string mkt)
         {
             this.resultSum = resultSum;
             HttpHelper httpHelper = new HttpHelper();
-            this.requestStr = httpHelper.GetRequestUrl(idx, resultSum, "zh-cn");
+            requestStr = httpHelper.GetRequestUrl(idx, resultSum, mkt);
             string requestJson = httpHelper.GetHttpData(this.requestStr);
             //批量增加数据集合
             for(int n = 0; n < this.resultSum; n++)

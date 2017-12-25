@@ -53,11 +53,12 @@ namespace New_BingPhoto
             {
                 System.Windows.MessageBox.Show("网络连接失败，部分功能将不可用！\n", "必应美图小助手", MessageBoxButton.OK, MessageBoxImage.Error);
                 Combox_date.IsEnabled = false;
+                Button_Search.IsEnabled = false;
                 Button_download.IsEnabled = false;
                 Button_setWall.IsEnabled = false;
                 Button_resetWall.IsEnabled = false;
                 Button_downloadAll.IsEnabled = false;
-                Button_setting.IsEnabled = false;
+                //Button_setting.IsEnabled = false;
             }
         }
 
@@ -92,7 +93,7 @@ namespace New_BingPhoto
             }
             else
             {
-                Photos photos = new Photos(7, 8);
+                Photos photos = new Photos(7, 8, mkt);
                 httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
                 setting.SetWallpaper(imagedir + "/" + System.IO.Path.GetFileName(photos.GetAphotoValue(idx - 7).HDUrl));
             }
@@ -194,7 +195,7 @@ namespace New_BingPhoto
             }
             else
             {
-                Photos photos = new Photos(7, 8);
+                Photos photos = new Photos(7, 8, mkt);
                 if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
                 {
                     //httpHelper.DownLoadPhoto(photos.GetAphotoValue(idx - 7).HDUrl);
@@ -214,8 +215,8 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Button_downloadAll_Click(object sender, RoutedEventArgs e)
         {
-            Photos photos0 = new Photos(-1, 8);
-            Photos photos1 = new Photos(7, 8);
+            Photos photos0 = new Photos(-1, 8, "zh-cn");
+            Photos photos1 = new Photos(7, 8, "zh-cn");
             photos0.BeathDownloadImage();
             photos1.BeathDownloadImage();
         }
@@ -250,7 +251,7 @@ namespace New_BingPhoto
             }
             else
             {
-                Photos photos = new Photos(7, 8);
+                Photos photos = new Photos(7, 8, mkt);
                 Label_copyright.Content = photos.GetAphotoValue(idx - 7).Copyright;
                 image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
             }
@@ -286,7 +287,7 @@ namespace New_BingPhoto
             }
             else
             {
-                Photos photos = new Photos(7, 8);
+                Photos photos = new Photos(7, 8, mkt);
                 Label_copyright.Content = photos.GetAphotoValue(idx - 7).Copyright;
                 image_Photobox.Source = new BitmapImage(new Uri(photos.GetAphotoValue(idx - 7).HDUrl));
             }

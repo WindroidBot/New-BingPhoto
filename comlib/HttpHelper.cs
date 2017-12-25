@@ -141,8 +141,9 @@ namespace comlib
         /// <returns>json字段的值</returns>
         public string GetJsonValue(string jsonstr, int index, string key)
         {
-            JObject jsonObj = JObject.Parse(jsonstr);
-            return jsonObj["images"][index][key].ToString();
+            //JObject jsonObj = JObject.Parse(jsonstr);
+            //return jsonObj["images"][index][key].ToString();
+            return "test";
         }
 
         /// <summary>
@@ -150,6 +151,7 @@ namespace comlib
         /// </summary>
         /// <param name="idx">相对日期参数</param>
         /// <param name="n">结果集数量</param>
+        /// <param name="mkt">国家代码</param>
         /// <param name="index">结果集元素的索引</param>
         /// <param name="key">元素中的字段</param>
         /// <returns>json中的字段值</returns>                   
@@ -222,8 +224,8 @@ namespace comlib
             WebClient webClient = new WebClient();
             try
             {
-                //webClient.DownloadFile(fileUrl, PhotoDir + "/" + Path.GetFileName(fileUrl));
-                webClient.DownloadFile(fileUrl, PhotoDir + "/" + fileName + ".jpg");
+                webClient.DownloadFile(fileUrl, PhotoDir + "/" + Path.GetFileName(fileUrl));
+                //webClient.DownloadFile(fileUrl, PhotoDir + "/" + fileName + ".jpg");
                 Console.WriteLine("【system】下载成功！");
             }
             catch (System.Net.WebException)

@@ -21,6 +21,7 @@ namespace New_BingPhoto
     /// </summary>
     public partial class SettingWindow : Window
     {
+
         public SettingWindow()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            
             ConfigHelper configHelper = new ConfigHelper();
             //读取配置文件，并从窗体体现
             if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
@@ -51,6 +53,7 @@ namespace New_BingPhoto
             {
                 CheckBox_AutoSetWall.IsChecked = true;
             }
+            
         }
 
         /// <summary>
@@ -118,7 +121,7 @@ namespace New_BingPhoto
         private void CheckBox_AutoSetWall_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox_AutoDownload.IsChecked = true;
-            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            //AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
         }
 
         /// <summary>
@@ -129,7 +132,16 @@ namespace New_BingPhoto
         private void CheckBox_AutoDownload_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox_AutoSetWall.IsChecked = false;
-            AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+            Combox_country.IsEnabled = false;
+            //AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
+        }
+
+        private void CheckBox_AutoSetWall_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (CheckBox_AutoDownload.IsChecked == false)
+            {
+                Combox_country.IsEnabled = false;
+            }
         }
     }
 }
