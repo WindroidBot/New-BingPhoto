@@ -38,7 +38,7 @@ namespace photolib
 
             HttpHelper httpHelper = new HttpHelper();
             requestStr = httpHelper.GetRequestUrl(idx, 1, mkt);
-            Console.WriteLine("[system]Request URL String is" + requestStr);
+            Console.WriteLine("[system]Request URL String is:" + requestStr);
             string requestJson = httpHelper.GetHttpData(httpHelper.GetRequestUrl(idx, 1, mkt));
             enddate = int.Parse(httpHelper.GetJsonValue(requestJson, 0, "enddate"));
             hDUrl = "http://www.bing.com" + httpHelper.GetJsonValue(requestJson, 0, "url");
