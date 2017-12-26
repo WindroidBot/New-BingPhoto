@@ -92,6 +92,34 @@ namespace comlib
             return "";
         }
 
+        public string GetRequestCountry(string country)
+        {
+            switch (country)
+            {
+                case "zh-cn":
+                    return "中国";
+                case "ja-jp":
+                    return "日本";
+                case "en-in":
+                    return "印度";
+                case "de-de":
+                    return "德国";
+                case "fr-fr":
+                    return "法国";
+                case "en-gb":
+                    return "英国";
+                case "pt-br":
+                    return "巴西";
+                case "en-ca":
+                    return "加拿大";
+                case "en-us":
+                    return "美国";
+                case "en-au":
+                    return "澳大利亚";
+            }
+            return "中国";
+        }
+
         /// <summary>
         /// 构造请求字符串
         /// </summary>

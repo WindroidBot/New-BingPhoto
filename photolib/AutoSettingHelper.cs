@@ -24,6 +24,10 @@ namespace photolib
         public string Dirpath { get => dirpath; set => dirpath = value; }
         public string PhotoURI { get => photoURI; set => photoURI = value; }
 
+        /// <summary>
+        /// AutoSettingHelper的带参构造方法，设置时调用，不产生Photo对象，不依赖网络
+        /// </summary>
+        /// <param name="args">参数为“setting”时为设置模式</param>
         public AutoSettingHelper(string args)
         {
             if (string.Equals(args, "setting"))
@@ -39,18 +43,14 @@ namespace photolib
             }
         }
 
-
-
-
-
-
-
-
+        /// <summary>
+        /// AutoSettingHelper的不带参构造方法，执行时调用，产生Photo对象。依赖网络
+        /// </summary>
         public AutoSettingHelper()
         {
             Setting setting = new Setting();
             ConfigHelper configHelper = new ConfigHelper();
-            Photo photo = new Photo(0, "zh-cn");
+            Photo photo = new Photo(0, configHelper.GetValue("AUTO","MKT"));
             Inipath = setting.GetMyDocumentsPath() + "\\bingphoto.ini";
             Mainpath = configHelper.GetValue("BINGPHOTO", "EXEPATH");
             Dirpath = configHelper.GetValue("BINGPHOTO", "DIRPATH");

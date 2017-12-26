@@ -34,7 +34,10 @@ namespace New_BingPhoto
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            if (CheckBox_AutoDownload.IsEnabled == true)
+            {
+                Combox_country.IsEnabled = false;
+            }
             ConfigHelper configHelper = new ConfigHelper();
             //读取配置文件，并从窗体体现
             if (configHelper.GetValue("BINGPHOTO","RESOV") == "1920x1080")
@@ -53,6 +56,7 @@ namespace New_BingPhoto
             {
                 CheckBox_AutoSetWall.IsChecked = true;
             }
+            Combox_country.Text = (new HttpHelper()).GetRequestCountry(configHelper.GetValue("AUTO", "MKT"));
             
         }
 
@@ -109,6 +113,8 @@ namespace New_BingPhoto
                 //删除计划任务
                 TaskSchedulerHelper.DeleteTaskScheduler("New BingPhoto");
             }
+            //保存mkt参数
+            configHelper.SetValue("AUTO", "MKT", (new HttpHelper()).GetRequestMkt(Combox_country.Text));
             //其他设置写在这
             Close();
         }
@@ -121,6 +127,7 @@ namespace New_BingPhoto
         private void CheckBox_AutoSetWall_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox_AutoDownload.IsChecked = true;
+            Combox_country.IsEnabled = true;
             //AutoSettingHelper autoSettingHelper = new AutoSettingHelper();
         }
 
@@ -147,6 +154,11 @@ namespace New_BingPhoto
             {
                 Combox_country.IsEnabled = false;
             }
+        }
+
+        private void CheckBox_AutoDownload_Checked(object sender, RoutedEventArgs e)
+        {
+            Combox_country.IsEnabled = true;
         }
     }
 }
