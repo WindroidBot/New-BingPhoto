@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="CmdHelper.cs" />
     <Compile Include="ConfigHelper.cs" />
+    <Compile Include="ConfigureDictionaryHelper.cs" />
     <Compile Include="ConsoleHelper.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="ImageHelper.cs" />
